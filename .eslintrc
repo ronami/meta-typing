@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "react-app",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended",
+  ],
+  "settings": {
+    "react": {
+      // Fix for https://github.com/jaredpalmer/tsdx/issues/279
+      "version": "999.999.999"
+    }
+  }
+}

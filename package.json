@@ -1,0 +1,37 @@
+{
+  "name": "meta-typing",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "Ronen Amiel",
+  "types": "./src/index.d.ts",
+  "scripts": {
+    "test": "tsd",
+    "lint": "eslint . --ext js,ts --max-warnings 0"
+  },
+  "tsd": {
+		"directory": "src"
+	},
+  "devDependencies": {
+    "tsd": "^0.11.0",
+    "@typescript-eslint/eslint-plugin": "^2.12.0",
+    "@typescript-eslint/parser": "^2.12.0",
+    "babel-eslint": "^10.0.3",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.4",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-react-app": "^5.0.2",
+    "eslint-plugin-flowtype": "^3.13.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.2.0"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
+}
