@@ -1,8 +1,8 @@
-import { Tail, Head, Push, Exists } from '..';
+import { Tail, Head, Push, Includes } from '..';
 
 export type Uniq<T extends Array<any>, R extends Array<any> = []> = {
   0: R;
-  1: Exists<R, Head<T>> extends true
+  1: Includes<R, Head<T>> extends true
     ? Uniq<Tail<T>, R>
     /* eslint-disable */
     // @ts-ignore

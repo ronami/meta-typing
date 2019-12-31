@@ -1,11 +1,4 @@
-import { Reverse, IsEqual, Tail, Head } from '..';
-
-export type Exists<T extends Array<any>, E> = T extends []
-  ? false
-  : {
-      0: true;
-      1: Exists<Tail<T>, E>;
-    }[IsEqual<Head<T>, E> extends true ? 0 : 1];
+import { Reverse } from '..';
 
 export type Push<
   Tuple extends Array<any>,
