@@ -59,3 +59,6 @@ export type Dec<T extends number> = T extends 10
   : T extends 1
   ? 0
   : never;
+
+// https://github.com/microsoft/TypeScript/issues/23182#issuecomment-379092421
+export type IsNever<T> = [T] extends [never] ? true : false;
