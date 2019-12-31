@@ -13,6 +13,7 @@ export * from './isEqual';
 export * from './max';
 export * from './min';
 export * from './multiply';
+export * from './nth';
 export * from './reverse';
 export * from './substract';
 export * from './tail';
