@@ -1,5 +1,11 @@
 ## Meta-Typing
 
-> 🗞 At attempt at writting Lodash's functions with TypeScript's type system
+> 🗞 Writting Lodash's functionality with TypeScript's type system
 
 ### Introduction
+
+TypeScript's type system is a programming language that runs when we compile our code. Normally, we use it to annotate our code so TypeScript can help us find bugs before we run it.
+
+In this project however, I tried to push TypeScript's type system to its limits by implementing a good chunk of Lodash's functionality, purely on the shoulders of the type system.
+
+Please note that the goal of this project is educational and humoristic. Because TypeScript's type system has [some limts](https://github.com/microsoft/TypeScript/issues/28663) and since it's lacking some functionality I had to solve some problems in creative ways. 
