@@ -1,13 +1,12 @@
-import { Tail, Head, Push } from '..';
+import { Tail, Head, Unshift, Reverse } from '..';
 
 export type Compact<
   T extends Array<any>,
   R extends Array<any> = []
 > = T extends []
-  ? R
+  ? Reverse<R>
   : {
-      // @ts-ignore
-      0: Compact<Tail<T>, Push<R, Head<T>>>;
+      0: Compact<Tail<T>, Unshift<R, Head<T>>>;
       1: Compact<Tail<T>, R>;
     }[Head<T> extends 0
       ? 1

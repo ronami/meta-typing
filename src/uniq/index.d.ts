@@ -1,11 +1,8 @@
-import { Tail, Head, Push, Includes } from '..';
+import { Tail, Head, Includes, Unshift, Reverse } from '..';
 
 export type Uniq<T extends Array<any>, R extends Array<any> = []> = {
-  0: R;
+  0: Reverse<R>;
   1: Includes<R, Head<T>> extends true
     ? Uniq<Tail<T>, R>
-    /* eslint-disable */
-    // @ts-ignore
-    : Uniq<Tail<T>, Push<R, Head<T>>>;
-    /* eslint-enable */
+    : Uniq<Tail<T>, Unshift<R, Head<T>>>;
 }[T extends [] ? 0 : 1];
