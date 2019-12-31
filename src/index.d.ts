@@ -9,6 +9,8 @@ export * from './head';
 export * from './includes';
 export * from './intersection';
 export * from './isEqual';
+export * from './max';
+export * from './min';
 export * from './multiply';
 export * from './reverse';
 export * from './substract';
