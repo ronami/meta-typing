@@ -7,6 +7,7 @@ export * from './flatten';
 export * from './gte';
 export * from './head';
 export * from './includes';
+export * from './indexOf';
 export * from './intersection';
 export * from './isEqual';
 export * from './max';
