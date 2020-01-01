@@ -18,6 +18,7 @@ export * from './nth';
 export * from './range';
 export * from './reverse';
 export * from './size';
+export * from './splice';
 export * from './substract';
 export * from './tail';
 export * from './uniq';
