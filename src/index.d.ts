@@ -28,5 +28,6 @@ export * from './splice';
 export * from './substract';
 export * from './sum';
 export * from './tail';
+export * from './take';
 export * from './uniq';
 export * from './utils';
