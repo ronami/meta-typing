@@ -20,6 +20,7 @@ export * from './max';
 export * from './min';
 export * from './multiply';
 export * from './nth';
+export * from './pull';
 export * from './range';
 export * from './reverse';
 export * from './size';
