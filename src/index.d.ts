@@ -10,6 +10,7 @@ export * from './gte';
 export * from './head';
 export * from './includes';
 export * from './indexOf';
+export * from './initial';
 export * from './inRange';
 export * from './intersection';
 export * from './isEqual';
