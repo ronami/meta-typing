@@ -4,6 +4,7 @@ export * from './clamp';
 export * from './compact';
 export * from './concat';
 export * from './difference';
+export * from './divide';
 export * from './drop';
 export * from './flatten';
 export * from './gte';
