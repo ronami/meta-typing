@@ -14,6 +14,7 @@ export * from './initial';
 export * from './inRange';
 export * from './intersection';
 export * from './isEqual';
+export * from './last';
 export * from './lte';
 export * from './max';
 export * from './min';
