@@ -1,5 +1,6 @@
 export * from './add';
 export * from './chunk';
+export * from './clamp';
 export * from './compact';
 export * from './concat';
 export * from './difference';
