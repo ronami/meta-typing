@@ -20,6 +20,7 @@ export * from './reverse';
 export * from './size';
 export * from './splice';
 export * from './substract';
+export * from './sum';
 export * from './tail';
 export * from './uniq';
 export * from './utils';
