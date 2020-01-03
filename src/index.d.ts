@@ -32,5 +32,6 @@ export * from './sum';
 export * from './tail';
 export * from './take';
 export * from './uniq';
-export * from './utils';
+export * from './utils/lists';
+export * from './utils/math';
 export * from './zip';

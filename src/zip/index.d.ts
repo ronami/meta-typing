@@ -1,4 +1,4 @@
-import { Acc, Reverse, Unshift, Tail, Head, IsEqual } from '..';
+import { Inc, Reverse, Unshift, Tail, Head, IsEqual } from '..';
 
 type GetAtIndex<
   B extends Array<Array<any>>,
@@ -28,5 +28,5 @@ export type Zip<
   : {
       0: Reverse<R>;
       // @ts-ignore
-      1: Zip<T, Acc<N>, Unshift<R, GetAtIndex<T, N>>>;
+      1: Zip<T, Inc<N>, Unshift<R, GetAtIndex<T, N>>>;
     }[AllEqual<F, undefined> extends true ? 0 : 1];
