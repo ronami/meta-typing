@@ -8,6 +8,12 @@ import { Inc, IsNever } from '..';
 //
 // This is relying on how we implemented the `Dec` method: If a value is out of scope (smaller
 // than -1) we return `never`. Similarily to how the `-Infinity` value works in JavaScript.
+//
+// For example, the following call Lte<1, 4> will check if either values are `never`. Since
+// both aren't `never`, the recursion runs again with Lte<0, 3>. Again none of them are `never`
+// so the recursion runs again: Lte<-1, 2> and then again: Lte<never, 1>. Calling Dec<-1>
+// returns `never` since -1 is the limit Dec can calculate. Next call to Lte will return true
+// since `A` equals to the `never` type.
 export type Lte<
   // Accept two numbers two compare, should return `true` if `A` is smaller than or equals to
   // `B`.

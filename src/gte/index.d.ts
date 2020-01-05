@@ -8,6 +8,12 @@ import { Inc, IsNever } from '..';
 //
 // This is relying on how we implemented the `Inc` method: If a value is out of scope (larger
 // than 10) we return `never`. Similarily to how the `Infinity` value works in JavaScript.
+//
+// For example, the following call Gte<9, 7> will check if either values are `never`. Since
+// both aren't `never`, the recursion runs again with Gte<10, 8>. Again none of them are `never`
+// so the recursion runs again: Gte<never, 9>. Calling Add<10> returns `never` since 10 is the
+// limit Add can calculate. Next call to Gte will return true since `A` equals to the `never`
+// type.
 export type Gte<
   // Accept two numbers two compare, should return `true` if `A` is bigger than or equals to
   // `B`.
