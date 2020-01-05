@@ -2,10 +2,10 @@ import { Inc, Dec } from '..';
 
 // Adds two numbers: https://lodash.com/docs/4.17.15#add.
 //
-// Because TypeScript's type system has no support for arithmetic,
-// the implementation uses recursion.
+// Because TypeScript's type system has no support for arithmetic, the implementation
+// uses recursion.
 export type Add<
-  // Accept two numbers two add together
+  // Accept two numbers two add together.
   A extends number,
   B extends number
 > = {
