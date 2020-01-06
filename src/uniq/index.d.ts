@@ -9,7 +9,8 @@ export type Uniq<
   // it will be returned.
   R extends Array<any> = []
 > = {
-  // If the input array is empty, return the accumulator array:
+  // If the input array is empty, return the accumulator array. We reverse it first
+  // since we add elements into it in a reversed order.
   0: Reverse<R>;
   // Otherwise, check if the first element of the array is already in the accumulator
   // array. If it is, then there is no need to add it a second time, and we run the

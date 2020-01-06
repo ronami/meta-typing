@@ -12,7 +12,8 @@ export type Take<
   R extends Array<any> = []
 > = {
   // If the input array is empty end the recursion and return the internal
-  // accumulator:
+  // accumulator. We reverse it first since we add elements into it in a reversed
+  // order:
   0: Reverse<R>;
   // Otherwise, run the recursion again with the reset of the array, decrease
   // the value of `N` by 1, and push the first element into the accumulator:
