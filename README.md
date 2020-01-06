@@ -12,9 +12,53 @@ Just to see how far I can go I tried implementing the classical [Eight queens pu
 
 ### Nice! Where's the code?
 
-Every function has its own folder inside the [src]() folder. In each folder, you will find the function implementation and a test file for that function.
+Every function has its own folder inside the [src]() folder. In each folder, you will find the function implementation and a test file for that function. I added comments to each function's code to explain what's going on.
 
-I added comments to each function's code to explain what's going on.
+Here's the list of currently implemented functions:
+
+#### Basic arithmetics:
+
+- [Basic math functions [src/utils/math.d.ts]]()
+- [Add [src/add/index.d.ts]]()
+- [Substract [src/substract/index.d.ts]]()
+- [Multiply [src/multiply/index.d.ts]]()
+- [Divide [src/divide/index.d.ts]]()
+- [Clamp [src/clamp/index.d.ts]]()
+- [Greater than or equal [src/gte/index.d.ts]]()
+- [Less than or equal [src/lte/index.d.ts]]()
+- [Max [src/max/index.d.ts]]()
+- [Min [src/min/index.d.ts]]()
+- [Sum [src/sum/index.d.ts]]()
+
+#### Utility
+
+- [IsEqual [src/isEqual/index.d.ts]]()
+- [InRange [src/inRange/index.d.ts]]()
+
+#### Lists
+
+- [Head [src/head/index.d.ts]]()
+- [Tail [src/tail/index.d.ts]]()
+- [Chunk [src/chunk/index.d.ts]]()
+- [Compact [src/compact/index.d.ts]]()
+- [Concat [src/concat/index.d.ts]]()
+- [Difference [src/difference/index.d.ts]]()
+- [Drop [src/drop/index.d.ts]]()
+- [Flatten [src/flatten/index.d.ts]]()
+- [Includes [src/includes/index.d.ts]]()
+- [IndexOf [src/indexOf/index.d.ts]]()
+- [Initial [src/initial/index.d.ts]]()
+- [Intersection [src/intersection/index.d.ts]]()
+- [Last [src/last/index.d.ts]]()
+- [Nth [src/nth/index.d.ts]]()
+- [Pull [src/pull/index.d.ts]]()
+- [Range [src/range/index.d.ts]]()
+- [Reverse [src/reverse/index.d.ts]]()
+- [Size [src/size/index.d.ts]]()
+- [Splice [src/splice/index.d.ts]]()
+- [Take [src/take/index.d.ts]]()
+- [Uniq [src/uniq/index.d.ts]]()
+- [Zip [src/zip/index.d.ts]]()
 
 ### Run the code locally
 
