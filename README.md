@@ -55,7 +55,7 @@ Here's the list of currently implemented functions:
 - [Range [src/range/index.d.ts]]()
 - [Reverse [src/reverse/index.d.ts]]()
 - [Size [src/size/index.d.ts]]()
-- [Splice [src/splice/index.d.ts]]()
+- [Slice [src/slice/index.d.ts]]()
 - [Take [src/take/index.d.ts]]()
 - [Uniq [src/uniq/index.d.ts]]()
 - [Zip [src/zip/index.d.ts]]()

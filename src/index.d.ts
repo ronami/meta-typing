@@ -26,7 +26,7 @@ export * from './queens';
 export * from './range';
 export * from './reverse';
 export * from './size';
-export * from './splice';
+export * from './slice';
 export * from './substract';
 export * from './sum';
 export * from './tail';
