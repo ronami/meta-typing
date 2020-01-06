@@ -14,6 +14,24 @@ Just to see how far I can go I tried implementing the classical [Eight queens pu
 
 Every function has its own folder inside the [src](src) folder. In each folder, you will find the function implementation and a test file for that function. I added comments to each function's code to explain what's going on.
 
+### Run the code locally
+
+Start by installing dependencies:
+
+```
+$ npm install
+```
+
+Open a file of any function and hover over the types to see the results of "running" that function with some input (try hovering the resulting type):
+
+![Slice](assets/slice.png)
+
+You can also run the tests with:
+
+```
+$ npm test
+```
+
 Here's the list of currently implemented functions:
 
 #### Basic arithmetics:
@@ -60,23 +78,7 @@ Here's the list of currently implemented functions:
 - [Uniq [src/uniq/index.d.ts]](src/uniq/index.d.ts)
 - [Zip [src/zip/index.d.ts]](src/zip/index.d.ts)
 
-### Run the code locally
-
-Start by installing dependencies:
-
-```
-$ npm install
-```
-
-Open a file of any function and hover over the types to see the results of "running" that function with some input.
-
-You can also run the tests with:
-
-```
-$ npm test
-```
-
-#### Additional links
+### Additional links
 
 - [Lodash's documentation](https://lodash.com/docs)
 - [Utility TypeScript types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
