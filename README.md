@@ -1,6 +1,6 @@
 ## 📚 Meta-Typing
 
-> Writing Lodash's functions with TypeScript's type system
+> Implementing Lodash's functions with TypeScript's type system
 
 ### Introduction
 
@@ -26,7 +26,7 @@ Open a file of any function and hover over the types to see the results of "runn
 
 ![Slice](assets/slice.png)
 
-You can also run the tests with:
+You can also run tests (written with [tsd](https://github.com/SamVerschueren/tsd)) with:
 
 ```
 $ npm test
@@ -34,9 +34,9 @@ $ npm test
 
 Here's the list of currently implemented functions:
 
-#### Basic arithmetics:
+#### Math:
 
-- [Basic math functions [src/utils/math.d.ts]](src/utils/math.d.ts)
+- [Basic arithmetic [src/utils/math.d.ts]](src/utils/math.d.ts)
 - [Add [src/add/index.d.ts]](src/add/index.d.ts)
 - [Substract [src/substract/index.d.ts]](src/substract/index.d.ts)
 - [Multiply [src/multiply/index.d.ts]](src/multiply/index.d.ts)
