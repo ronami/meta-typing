@@ -25,8 +25,8 @@ export type Sum<
   //
   //   Add<R, Head<A>>
   //
-  // to the value of G, we also pass it to a call to Cast<>. Normally we don't have to do that
-  // but the compiler doesn't know that G is and always will be a number. By casting it we tell
-  // the compiler that it is always going to get a number: Either the value we pass is of type
-  // number, or that it's going to use the general number type.
+  // to the value of G, we also pass it to a call to Cast. Normally we don't have to do that
+  // but the compiler doesn't know that G is a number.
+  // By casting it we tell the compiler that it is always going to get a number: Either the value
+  // we pass is of type `number`, or that it's going to use the general `number` type.
 }[A extends [] ? 0 : 1];

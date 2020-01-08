@@ -1,6 +1,13 @@
 import { Substract, Inc, Cast } from '..';
 
-export type Divide<A extends number, B extends number, R extends number = 0> = {
+// Divide two numbers: https://lodash.com/docs/4.17.15#divide.
+export type Divide<
+  // The first number in a division.
+  A extends number,
+  // The second number in a division.
+  B extends number,
+  R extends number = 0
+> = {
   0: R;
   1: never;
   2: Substract<A, B> extends infer G
