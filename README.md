@@ -8,7 +8,7 @@
 
 The goal of this project is educational and humoristic. I used recursion a lot and had to find creative solutions to overcome [some of the limitations](https://github.com/microsoft/TypeScript/issues/28663) of the type system. Even though I tried, it's impossible to implement a handful of functions until [several features are implemented](https://github.com/microsoft/TypeScript/issues/1213) in TypeScript.
 
-Just to see how far I can go I tried implementing the classical [Eight queens puzzle](https://en.wikipedia.org/wiki/Eight_queens_puzzle). I'm still shocked it actually works, [you have to check it out]().
+Just to see how far I can push it, I tried implementing the classical [Eight queens puzzle](https://en.wikipedia.org/wiki/Eight_queens_puzzle). It's crazy that it actually works, [check it out]().
 
 ### Run the code locally
 
