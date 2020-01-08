@@ -10,11 +10,9 @@ The goal of this project is educational and humoristic. I used recursion a lot a
 
 Just to see how far I can go I tried implementing the classical [Eight queens puzzle](https://en.wikipedia.org/wiki/Eight_queens_puzzle). I'm still shocked it actually works, [you have to check it out]().
 
-### Nice! Where's the code?
+### Run the code locally
 
 Every function has its own folder inside the [src](src) folder. In each folder, you will find the function implementation and a test file for that function. I added comments to each function's code to explain what's going on.
-
-### Run the code locally
 
 Start by installing dependencies:
 
