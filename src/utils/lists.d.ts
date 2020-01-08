@@ -1,4 +1,10 @@
-import { Reverse } from '..';
+import { Reverse, Tail, Includes, Head } from '..';
+
+export type InEvery<T extends Array<Array<any>>, E> = {
+  0: true;
+  1: false;
+  2: InEvery<Tail<T>, E>;
+}[T extends [] ? 0 : Includes<Head<T>, E> extends true ? 2 : 1];
 
 export type Push<
   Tuple extends Array<any>,
