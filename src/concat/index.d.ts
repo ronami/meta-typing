@@ -1,14 +1,20 @@
-import { Tail, Head, Reverse, ToTuple, Unshift } from '..';
+import { Head, Tail, Unshift, Reverse, Cast } from '..';
 
+// Creates a new array by concatenating two arrays together:
+// https://lodash.com/docs/4.17.15#concat.
 export type Concat<
-  T1 extends any[],
-  T2 extends any[],
-  R = Reverse<T1>,
-  T extends any[] = ToTuple<R>
-> = Concat_<T, T2>;
+  //
+  T1 extends Array<any>,
+  //
+  T2 extends Array<any>
+> =
+  //
+  Reverse<T1> extends infer G ? Concatenation<Cast<G, Array<any>>, T2> : never;
 
-type Concat_<T1 extends any[], T2 extends any[]> = {
+//
+type Concatenation<T1 extends Array<any>, T2 extends Array<any>> = {
+  //
   1: Reverse<T1>;
-  // @ts-ignore
-  0: Concat_<Unshift<T1, Head<T2>>, Tail<T2>>;
+  //
+  0: Concatenation<Unshift<T1, Head<T2>>, Tail<T2>>;
 }[T2 extends [] ? 1 : 0];

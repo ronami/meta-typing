@@ -1,19 +1,10 @@
-import { Reverse, Tail, Includes, Head } from '..';
+import { Tail, Includes, Head } from '..';
 
 export type InEvery<T extends Array<Array<any>>, E> = {
   0: true;
   1: false;
   2: InEvery<Tail<T>, E>;
 }[T extends [] ? 0 : Includes<Head<T>, E> extends true ? 2 : 1];
-
-export type Push<
-  Tuple extends Array<any>,
-  Element,
-  R = Reverse<Tuple>,
-  T extends Array<any> = ToTuple<R>
-> = Reverse<Unshift<T, Element>>;
-
-export type ToTuple<T> = T extends Array<any> ? T : Array<any>;
 
 export type Unshift<Tuple extends Array<any>, Element> = ((
   h: Element,
