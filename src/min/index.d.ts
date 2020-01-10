@@ -1,6 +1,9 @@
 import { Head, Lte, Tail } from '..';
 
 // Computes the minimum value of array: https://lodash.com/docs/4.17.15#min.
+//
+//   type S = Min<[1, 2, 3]>; // 1
+//
 export type Min<
   // The array to iterate over.
   T extends Array<number>,

@@ -2,6 +2,9 @@ import { Tail, Head, Unshift, Reverse } from '..';
 
 // Creates an array with all falsey values removed. The values false, null, 0,
 // "", and undefined are falsey: https://lodash.com/docs/4.17.15#compact.
+//
+//   type S = Compact<[0, 1, false, 2, '', 3]>; // [1, 2, 3]
+//
 export type Compact<
   // The input array.
   T extends Array<any>,

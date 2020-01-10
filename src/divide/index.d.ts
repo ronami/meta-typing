@@ -1,6 +1,9 @@
 import { Substract, Inc, Cast } from '..';
 
 // Divide two numbers: https://lodash.com/docs/4.17.15#divide.
+//
+//   type S = Divide<6, 2>; // 3
+//
 export type Divide<
   // The first number in a division.
   A extends number,

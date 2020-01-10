@@ -1,6 +1,9 @@
 import { Add, Tail, Head, Cast } from '..';
 
 // Computes the sum of the values in array: https://lodash.com/docs/4.17.15#sum.
+//
+//   type S = Sum<[1, 2, 3]>; // 6
+//
 export type Sum<
   // The array to iterate over.
   A extends Array<number>,

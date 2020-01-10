@@ -2,6 +2,9 @@ import { Gte, Lte } from '..';
 
 // Checks if `N` is between start and up to, but not including, end:
 // https://lodash.com/docs/4.17.15#inRange.
+//
+//   type S = InRange<3, 1, 5>; // true
+//
 export type InRange<
   // The number to check.
   N extends number,

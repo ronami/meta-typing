@@ -1,6 +1,9 @@
 import { Tail, Head, IsEqual } from '..';
 
 // Checks if a value is an array: https://lodash.com/docs/4.17.15#includes.
+//
+//   type S = Includes<[1, 2, 3], 2>; // true
+//
 export type Includes<T extends Array<any>, E> =
   // We start by checking if the `T` array is empty. If it is, we reached the end of the
   // recursion without finding any matching elements and return `false`:

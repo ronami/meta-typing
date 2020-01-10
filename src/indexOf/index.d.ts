@@ -2,6 +2,9 @@ import { Head, Tail, IsEqual, Inc } from '..';
 
 // Gets the index at which the first occurrence of value is found in array, Returns
 // the index of the matched value, else -1: https://lodash.com/docs/4.17.15#indexOf.
+//
+//   type S = IndexOf<[1, 2, 3], 2>; // 1
+//
 export type IndexOf<
   // The array to inspect.
   T extends Array<any>,

@@ -2,6 +2,8 @@ import { Dec } from '..';
 
 // Substracts two numbers: https://lodash.com/docs/4.17.15#subtract.
 //
+//   type S = Substract<5, 2>; // 3
+//
 // Because TypeScript's type system has no support for arithmetic, the implementation
 // uses recursion.
 export type Substract<

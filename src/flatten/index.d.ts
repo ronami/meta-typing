@@ -5,6 +5,9 @@ type Push<T extends Array<any>, E> =
   //
   Reverse<T> extends infer G ? Reverse<Unshift<Cast<G, Array<any>>, E>> : never;
 
+// Flattens an array a single level deep: https://lodash.com/docs/4.17.15#flatten.
+//
+//   type S = Flatten<[1, [2, [3, [4]], 5]]>; // [1, 2, [3, [4]], 5]
 //
 export type Flatten<
   //

@@ -1,6 +1,9 @@
 import { Add, Dec, Cast } from '..';
 
 // Multiply two numbers: https://lodash.com/docs/4.17.15#multiply.
+//
+//   type S = Multiply<2, 3>; // 6
+//
 export type Multiply<
   // The first number in a multiplication.
   A extends number,

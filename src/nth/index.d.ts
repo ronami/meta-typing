@@ -1,6 +1,9 @@
 import { Head, Tail, Dec } from '..';
 
 // Gets the element at index n of array: https://lodash.com/docs/4.17.15#nth.
+//
+//   type S = Nth<[1, 2, 3], 1>; // 2
+//
 export type Nth<
   // The array to query.
   T extends Array<any>,

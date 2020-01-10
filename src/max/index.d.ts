@@ -1,6 +1,9 @@
 import { Head, Gte, Tail } from '..';
 
 // Computes the maximum value of array: https://lodash.com/docs/4.17.15#max.
+//
+//   type S = Max<[1, 2, 3]>; // 3
+//
 export type Max<
   // The array to iterate over.
   T extends Array<number>,

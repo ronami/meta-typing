@@ -2,6 +2,8 @@ import { Inc, IsNever } from '..';
 
 // Checks if `A` is greater than or equal to `B`: https://lodash.com/docs/4.17.15#gte.
 //
+//   type S = Gte<3, 1>; // true
+//
 // Since TypeScript's type system has no concept of arithmetic, we try incrementing both `A`
 // and `B` by 1 every time the recursion runs. The first one to equal the `never` type is
 // is the larger one.

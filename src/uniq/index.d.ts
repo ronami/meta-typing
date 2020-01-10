@@ -2,6 +2,9 @@ import { Tail, Head, Includes, Unshift, Reverse } from '..';
 
 // Creates a duplicate-free version of an array, in which only the first occurrence
 // of each element is kept: https://lodash.com/docs/4.17.15#uniq.
+//
+//   type S = Uniq<[2, 1, 2]>; // [2, 1]
+//
 export type Uniq<
   // The input array.
   T extends Array<any>,

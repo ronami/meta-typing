@@ -2,6 +2,9 @@ import { Tail, Head, Unshift, InEvery, Reverse } from '..';
 
 // Creates an array of unique values that are included in all given arrays:
 // https://lodash.com/docs/4.17.15#intersection.
+//
+//   type S = Intersection<[[1, 2, 3], [2, 3, 4]]>; // [2, 3]
+//
 export type Intersection<T extends Array<Array<any>>> = T extends []
   ? []
   : Head<T> extends []

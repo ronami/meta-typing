@@ -2,6 +2,8 @@ import { Inc, Dec } from '..';
 
 // Adds two numbers: https://lodash.com/docs/4.17.15#add.
 //
+//   type S = Add<6, 4>; // 10
+//
 // Because TypeScript's type system has no support for arithmetic, the implementation
 // uses recursion.
 export type Add<

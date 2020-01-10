@@ -17,6 +17,12 @@ type AllEqual<T extends Array<any>, E> = T extends []
       1: false;
     }[IsEqual<Head<T>, E> extends true ? 0 : 1];
 
+// Creates an array of grouped elements, the first of which contains the first elements
+// of the given arrays, the second of which contains the second elements of the given
+// arrays, and so on: https://lodash.com/docs/4.17.15#zip.
+//
+//   type S = Zip<[['a', 'b'], [1, 2], [true, false]]>; // [['a', 1, true], ['b', 2, false]]
+//
 // @ts-ignore
 export type Zip<
   T extends Array<Array<any>>,

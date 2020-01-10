@@ -1,6 +1,9 @@
 import { Tail, Unshift, Head, Reverse } from '..';
 
 // Gets all but the last element of array: https://lodash.com/docs/4.17.15#initial.
+//
+//   type S = Initial<[1, 2]>; // 1
+//
 export type Initial<
   // The input array.
   A extends Array<any>,

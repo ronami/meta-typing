@@ -2,6 +2,9 @@ import { Head, Tail, Unshift, Reverse, Cast } from '..';
 
 // Creates a new array by concatenating two arrays together:
 // https://lodash.com/docs/4.17.15#concat.
+//
+//   type S = Concat<[1, 2, 3], [4, 5, 6]>; // [1, 2, 3, 4, 5, 6]
+//
 export type Concat<
   //
   T1 extends Array<any>,
