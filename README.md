@@ -1,12 +1,12 @@
 ## 📚 Meta-Typing
 
-> Implementing Lodash's functions with TypeScript's type system
+> Lodash's functions implemented with TypeScript's type system
 
 ### Introduction
 
 [TypeScript](https://github.com/Microsoft/TypeScript)'s type system is a programming language that runs when we compile our code. Normally, we use it to annotate our code so TypeScript can help us find bugs before we run it. In this project, however, I tried to push TypeScript's type system to its limits by implementing many of [Lodash](https://github.com/lodash/lodash)'s functions, purely on the shoulders of the type system.
 
-The goal of this project is educational and humoristic. I used recursion a lot and had to find creative solutions to overcome [some of the limitations](https://github.com/microsoft/TypeScript/issues/28663) of the type system. Even though I tried, it's impossible to implement a handful of functions until [several features are implemented](https://github.com/microsoft/TypeScript/issues/1213) in TypeScript.
+The goal of this project is educational and humoristic. I used recursion a lot and had to find creative solutions to overcome [some limitations](https://github.com/microsoft/TypeScript/issues/28663) of the type system. Even though I tried, it's impossible to implement a handful of functions until [several features](https://github.com/microsoft/TypeScript/issues/1213) are implemented in TypeScript.
 
 Just to see how far I can push it, I tried implementing the classical [Eight queens puzzle](https://en.wikipedia.org/wiki/Eight_queens_puzzle). It's crazy that it actually works, [check it out]().
 
@@ -78,9 +78,8 @@ Here's the list of currently implemented functions:
 
 ### Additional links
 
-- [Lodash's documentation](https://lodash.com/docs)
 - [Utility TypeScript types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
 - [Advanced TypeScript types](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
 - [TypeScript video tutorials from Egghead.io](https://egghead.io/browse/languages/typescript)
 - [TypeScripts Type System is Turing Complete](https://github.com/microsoft/TypeScript/issues/14833)
-- [Emulating a 4-Bit Virtual Machine](https://gist.github.com/acutmore/9d2ce837f019608f26ff54e0b1c23d6e)
+- [Emulating a 4-Bit Virtual Machine in TypeScript's type system](https://gist.github.com/acutmore/9d2ce837f019608f26ff54e0b1c23d6e)
