@@ -1,5 +1,24 @@
 import { Inc, Reverse, Unshift, Tail, Head, IsEqual, Cast } from '..';
 
+// Creates an array of grouped elements, the first of which contains the first elements
+// of the given arrays, the second of which contains the second elements of the given
+// arrays, and so on: https://lodash.com/docs/4.17.15#zip.
+//
+//   type S = Zip<[['a', 'b'], [1, 2], [true, false]]>; // [['a', 1, true], ['b', 2, false]]
+//
+export type Zip<
+  //
+  T extends Array<Array<any>>,
+  //
+  N extends number = 0,
+  //
+  R extends Array<Array<any>> = []
+> =
+  //
+  GetAtIndex<T, N> extends infer G
+    ? Zipper<T, N, R, Cast<G, Array<any>>>
+    : never;
+
 //
 type GetAtIndex<
   //
@@ -45,22 +64,3 @@ type Zipper<
   //
   2: Zip<T, Inc<N>, Unshift<R, F>>;
 }[T extends [] ? 0 : AllEqual<F, undefined> extends true ? 1 : 2];
-
-// Creates an array of grouped elements, the first of which contains the first elements
-// of the given arrays, the second of which contains the second elements of the given
-// arrays, and so on: https://lodash.com/docs/4.17.15#zip.
-//
-//   type S = Zip<[['a', 'b'], [1, 2], [true, false]]>; // [['a', 1, true], ['b', 2, false]]
-//
-export type Zip<
-  //
-  T extends Array<Array<any>>,
-  //
-  N extends number = 0,
-  //
-  R extends Array<Array<any>> = []
-> =
-  //
-  GetAtIndex<T, N> extends infer G
-    ? Zipper<T, N, R, Cast<G, Array<any>>>
-    : never;
