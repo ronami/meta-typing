@@ -9,10 +9,14 @@ export type Divide<
   A extends number,
   // The second number in a division.
   B extends number,
+  //
   R extends number = 0
 > = {
+  //
   0: R;
+  //
   1: never;
+  //
   2: Substract<A, B> extends infer G
     ? Divide<Cast<G, number>, B, Inc<R>>
     : never;

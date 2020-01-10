@@ -5,7 +5,14 @@ import { Head, Tail, Unshift } from '..';
 //
 //   type S = Reverse<[1, 2, 3]>; // [3, 2, 1]
 //
-export type Reverse<T extends Array<any>, R extends Array<any> = []> = {
+export type Reverse<
+  //
+  T extends Array<any>,
+  //
+  R extends Array<any> = []
+> = {
+  //
   0: R;
+  //
   1: Reverse<Tail<T>, Unshift<R, Head<T>>>;
 }[T extends [] ? 0 : 1];

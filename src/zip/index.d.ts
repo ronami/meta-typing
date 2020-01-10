@@ -25,9 +25,13 @@ type AllEqual<T extends Array<any>, E> = T extends []
 //
 // @ts-ignore
 export type Zip<
+  //
   T extends Array<Array<any>>,
+  //
   N extends number = 0,
+  //
   R extends Array<Array<any>> = [],
+  //
   F extends Array<any> = GetAtIndex<T, N>
 > = T extends []
   ? []
