@@ -7,7 +7,7 @@ import { Inc, Reverse, Unshift, Tail, Head, IsEqual, Cast } from '..';
 //   type S = Zip<[['a', 'b'], [1, 2], [true, false]]>; // [['a', 1, true], ['b', 2, false]]
 //
 export type Zip<
-  //
+  // The arrays to process.
   T extends Array<Array<any>>,
   //
   N extends number = 0,

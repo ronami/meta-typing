@@ -10,7 +10,7 @@ type Push<T extends Array<any>, E> =
 //   type S = Flatten<[1, [2, [3, [4]], 5]]>; // [1, 2, [3, [4]], 5]
 //
 export type Flatten<
-  //
+  // The array to flatten.
   T extends Array<any>,
   //
   R extends Array<any> = [],

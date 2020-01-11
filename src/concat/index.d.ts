@@ -6,9 +6,9 @@ import { Head, Tail, Unshift, Reverse, Cast } from '..';
 //   type S = Concat<[1, 2, 3], [4, 5, 6]>; // [1, 2, 3, 4, 5, 6]
 //
 export type Concat<
-  //
+  // The first array to concatenate.
   T1 extends Array<any>,
-  //
+  // The second array to concatenate.
   T2 extends Array<any>
 > =
   //

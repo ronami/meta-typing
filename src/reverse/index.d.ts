@@ -6,7 +6,7 @@ import { Head, Tail, Unshift } from '..';
 //   type S = Reverse<[1, 2, 3]>; // [3, 2, 1]
 //
 export type Reverse<
-  //
+  // The array to modify.
   T extends Array<any>,
   //
   R extends Array<any> = []

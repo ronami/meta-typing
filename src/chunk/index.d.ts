@@ -7,9 +7,9 @@ import { Reverse, Unshift, Take, Cast, Drop } from '..';
 //   type S = Chunk<['a', 'b', 'c', 'd'], 2>; // [['a', 'b'], ['c', 'd']]
 //
 export type Chunk<
-  //
+  // The array to process.
   T extends Array<any>,
-  //
+  // The length of each chunk.
   S extends number = 1,
   //
   R extends Array<Array<any>> = []
