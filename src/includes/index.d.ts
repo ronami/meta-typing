@@ -18,4 +18,10 @@ export type Includes<T extends Array<any>, E> =
         // Otherwise, keep the recursion going by passing the rest of the array (everything
         // but the first element which we just checked):
         1: Includes<Tail<T>, E>;
+        // For example, Includes<[1, 2, 3], 2> will translate into: Includes<[2, 3], 2>, since
+        // the first element (1) doesn't equal the element we want to find (2). So the recursion
+        // runs on the rest of the array.
+        //
+        // Then, Includes<[2, 3], 2> runs, and now the first element (2) is the same as the element
+        // we want to find, the recursion terminates and returns true.
       }[IsEqual<Head<T>, E> extends true ? 0 : 1];
