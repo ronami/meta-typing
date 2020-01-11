@@ -21,4 +21,16 @@ export type Take<
   // Otherwise, run the recursion again with the reset of the array, decrease
   // the value of `N` by 1, and push the first element into the accumulator:
   1: Take<Tail<A>, Dec<N>, Unshift<R, Head<A>>>;
+  // For example, evaluating Take<[1, 2, 3, 4, 5, 6], 2> will first translate into:
+  // Take<[2, 3, 4, 5, 6], 1, [1]>. You can see that since the array wasn't empty and
+  // `N` wasn't 0, the recursion ran again on the rest of the array, inserted the first
+  // element into the accumulator and decreased the value of `N` by 1.
+  //
+  // Then again, since `N` isn't 0 and the array isn't empty, the recursion will run
+  // on the rest of the array, insert the fist element into the accumulator and reduce
+  // the value of `N` by 1: Take<[3, 4, 5, 6], 0, [2, 1]>.
+  //
+  // Finally, now that `N` is 0, the recursion terminates and returns the reversed value
+  // of the accunulator which results with [1, 2]. Two elements were taken from the
+  // beginning of the array.
 }[A extends [] ? 0 : N extends 0 ? 0 : 1];
