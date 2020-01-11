@@ -24,4 +24,17 @@ export type Uniq<
   1: Includes<R, Head<T>> extends true
     ? Uniq<Tail<T>, R>
     : Uniq<Tail<T>, Unshift<R, Head<T>>>;
+  // For example, Uniq<[2, 1, 2]> will first translate into Uniq<[1, 2], [2]>. Notice that
+  // the first element was added to the accumulator array. This is because the first element
+  // wasn't already in the accumulator. The recursion then runs again on the rest of the array.
+  //
+  // The next recursion call will look like this: Uniq<[2], [1, 2]>. Again, since the first
+  // element (1) wasn't in the accumulator, in was inserted to the beginning of it, and the
+  // recursion runs on the rest of the array.
+  //
+  // Then, the recursion will look like this: Uniq<[], [1, 2]>>. Notice that the first element
+  // (2) wasn't added to the accumulator because it already present there.
+  //
+  // Finally, the array is empty so we return the reversed value of the accumulator to keep
+  // the order correct. This results in: [2, 1].
 }[T extends [] ? 0 : 1];
