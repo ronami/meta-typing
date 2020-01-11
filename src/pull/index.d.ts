@@ -24,4 +24,17 @@ export type Pull<
   // Finally, if it's not in the array of values to remove, we add the next value of `T`
   // into the accumulator and run the recursion again on the rest of the input array:
   2: Pull<Tail<T>, D, Unshift<R, Head<T>>>;
+  // For example, Pull<[1, 2, 3], [2]> will first translate into: Pull<[2, 3], [2], [1]>.
+  // Notice that the first element of the array was inserted into the accumulator (3rd
+  // argument) because it's not present in the array of values to removes ([2]).
+  //
+  // Next, the recursion will be called again: Pull<[3], [2], [1]>. Since the next value
+  // of the array (2) is in the array of values to remove, we don't insert it inot the
+  // accumulator, and the recursion runs on the rest of the array.
+  //
+  // Then, the recursion runs again with Pull<[], [2], [3, 1]> since 3 isn't in the array
+  // of values to remove.
+  //
+  // And finally, since the array is now empty, pull returns the reversed accumulated value
+  // which is [1, 3].
 }[T extends [] ? 0 : Includes<D, Head<T>> extends true ? 1 : 2];
