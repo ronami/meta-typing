@@ -24,4 +24,11 @@ export type IndexOf<
   // function again. This time with the rest of the array (everything but the first element)
   // and increase our counter by 1 so it tracks how many elements we searched for.
   2: IndexOf<Tail<T>, E, Inc<R>>;
+  // For example, IndexOf<[1, 2, 3], 2> translates into IndexOf<[2, 3], 2, 1>, since the first
+  // element of the array doesn't equal the element we want to find. Notice that the internal
+  // counter that started at 0 now index to 1 (the 3rd argument).
+  //
+  // Then, IndexOf<[2, 3], 2, 1> is being evaluated, since the first element (2) is the same
+  // as the element we want to find, the recursion returns the counter which tracked the
+  // position of the first element we were looking for. This results with the value of 1.
 }[T extends [] ? 0 : IsEqual<Head<T>, E> extends true ? 1 : 2];
