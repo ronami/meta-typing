@@ -19,4 +19,10 @@ export type Drop<
   1: A;
   // Otherwise, run again by dropping the first element and decrementing `N` by 1:
   2: Drop<Tail<A>, Dec<N>>;
+  // For example, evaluating Drop<[1, 2, 3], 1> will first translate into:
+  // Drop<[2, 3], 0>. Since `N` wasn't 0, the recursion ran again on the reset of
+  // the array and decreased the number of `N` by 1.
+  //
+  // Then, since the value of `N` is 0, the remaining value of the array is returned
+  // which results in [2, 3].
 }[A extends [] ? 0 : N extends 0 ? 1 : 2];
