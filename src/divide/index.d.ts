@@ -4,6 +4,7 @@ import { Substract, Inc, Cast } from '..';
 //
 //   type S = Divide<6, 2>; // 3
 //
+// Note: this version is only going to work for computation that result with whole numbers
 export type Divide<
   // The first number in a division.
   A extends number,
