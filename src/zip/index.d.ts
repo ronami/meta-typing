@@ -6,6 +6,17 @@ import { Inc, Reverse, Unshift, Tail, Head, IsEqual, Cast } from '..';
 //
 //   type S = Zip<[['a', 'b'], [1, 2], [true, false]]>; // [['a', 1, true], ['b', 2, false]]
 //
+// Notice that the function is implemented with an object and a ternary check that accesses
+// one of it's properties:
+//
+// {
+//   0: A;
+//   1: B;
+// }[T extends H ? 0 : 1]
+//
+// This is essentially the same as writting: `T extends H ? A : B`. If this type is using
+// recursion, using the latter approach quickly results with type errors of infinite recursion
+// so the first option is used to avoid false compiler errors.
 export type Zip<
   // The arrays to process.
   T extends Array<Array<any>>,

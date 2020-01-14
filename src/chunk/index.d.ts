@@ -6,6 +6,17 @@ import { Reverse, Unshift, Take, Cast, Drop } from '..';
 //
 //   type S = Chunk<['a', 'b', 'c', 'd'], 2>; // [['a', 'b'], ['c', 'd']]
 //
+// Notice that the function is implemented with an object and a ternary check that accesses
+// one of it's properties:
+//
+// {
+//   0: A;
+//   1: B;
+// }[T extends H ? 0 : 1]
+//
+// This is essentially the same as writting: `T extends H ? A : B`. If this type is using
+// recursion, using the latter approach quickly results with type errors of infinite recursion
+// so the first option is used to avoid false compiler errors.
 export type Chunk<
   // The array to process.
   T extends Array<any>,
