@@ -35,10 +35,13 @@ export type Gte<
   1: false;
   // None of them are `never`? Run again by increasing both by 1:
   2: Gte<Inc<A>, Inc<B>>;
-  // For example, calling Gte<9, 7> will check if either value is `never`. Since both 9 and 7
-  // don't equal `never`, the recursion continues with Gte<10, 8>.
+  // For example, callin Gte<9, 7> first checks if any of the values are `never`. Since that's
+  // false, the recursion increases both by 1 and runs again with: Gte<10, 8>.
   //
-  // Since none of them are `never` again, the recursion runs again with: Gte<never, 9>.
-  // Calling Add<10> returns `never` since 10 is the limit `Add` can calculate, the next call
-  // to Gte will return `true` since `A` equals to the `never` type.
+  // Then again, since both numbers don't equal `never`, the recursion increases both by 1 and
+  // runs again: Gte<never, 9>.
+  //
+  // Finally, after 10 was increased by 1 and went out of calculation range, it now has the value
+  // of `never`. Because it reached the `never` value first, the recursion terminates and returns
+  // `true`.
 }[IsNever<A> extends true ? 0 : IsNever<B> extends true ? 1 : 2];
