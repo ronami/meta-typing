@@ -76,6 +76,11 @@ Here's the list of currently implemented functions:
 - [Uniq [src/uniq/index.d.ts]](src/uniq/index.d.ts)
 - [Zip [src/zip/index.d.ts]](src/zip/index.d.ts)
 
+#### Sorting
+
+- [Quick-sort [src/quickSort/index.d.ts]](src/quickSort/index.d.ts)
+- [Merge-sort [src/mergeSort/index.d.ts]](src/mergeSort/index.d.ts)
+
 ### Additional links
 
 - [Utility TypeScript types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
