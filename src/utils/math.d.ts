@@ -59,8 +59,4 @@ export type Dec<T extends number> =
     ? 1
     : T extends 1
     ? 0
-    : T extends 0
-    ? -1
-    : T extends -1
-    ? -2
     : never; // If it's out of scope, just return `never`.

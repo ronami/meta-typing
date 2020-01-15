@@ -1,4 +1,4 @@
-import { Substract, Inc, Cast } from '..';
+import { Substract, Dec, Inc, Cast, IsNever } from '..';
 
 // Divide two numbers: https://lodash.com/docs/4.17.15#divide.
 //
@@ -28,9 +28,13 @@ export type Divide<
   //
   0: R;
   //
-  1: never;
+  1: Dec<R>;
   //
-  2: Substract<A, B> extends infer G
+  2: never;
+  //
+  3: Substract<A, B> extends infer G
     ? Divide<Cast<G, number>, B, Inc<R>>
     : never;
-}[A extends 0 ? 0 : B extends 0 ? 1 : 2];
+}[IsNever<A> extends true ? 1 : A extends 0 ? 0 : B extends 0 ? 2 : 3];
+
+type S = Divide<3, 2>;
