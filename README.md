@@ -39,47 +39,47 @@ Here's the list of currently implemented functions:
 - [Substract [src/substract/index.d.ts]](src/substract/index.d.ts)
 - [Multiply [src/multiply/index.d.ts]](src/multiply/index.d.ts)
 - [Divide [src/divide/index.d.ts]](src/divide/index.d.ts)
-- [Clamp [src/clamp/index.d.ts]](src/clamp/index.d.ts)
 - [Greater than or equal [src/gte/index.d.ts]](src/gte/index.d.ts)
 - [Less than or equal [src/lte/index.d.ts]](src/lte/index.d.ts)
+- [Clamp [src/clamp/index.d.ts]](src/clamp/index.d.ts)
 - [Max [src/max/index.d.ts]](src/max/index.d.ts)
 - [Min [src/min/index.d.ts]](src/min/index.d.ts)
 - [Sum [src/sum/index.d.ts]](src/sum/index.d.ts)
-
-#### Utility
-
-- [IsEqual [src/isEqual/index.d.ts]](src/isEqual/index.d.ts)
-- [InRange [src/inRange/index.d.ts]](src/inRange/index.d.ts)
 
 #### Lists
 
 - [Head [src/head/index.d.ts]](src/head/index.d.ts)
 - [Tail [src/tail/index.d.ts]](src/tail/index.d.ts)
-- [Chunk [src/chunk/index.d.ts]](src/chunk/index.d.ts)
-- [Compact [src/compact/index.d.ts]](src/compact/index.d.ts)
-- [Concat [src/concat/index.d.ts]](src/concat/index.d.ts)
-- [Difference [src/difference/index.d.ts]](src/difference/index.d.ts)
-- [Drop [src/drop/index.d.ts]](src/drop/index.d.ts)
-- [Flatten [src/flatten/index.d.ts]](src/flatten/index.d.ts)
-- [Includes [src/includes/index.d.ts]](src/includes/index.d.ts)
-- [IndexOf [src/indexOf/index.d.ts]](src/indexOf/index.d.ts)
-- [Initial [src/initial/index.d.ts]](src/initial/index.d.ts)
-- [Intersection [src/intersection/index.d.ts]](src/intersection/index.d.ts)
-- [Last [src/last/index.d.ts]](src/last/index.d.ts)
-- [Nth [src/nth/index.d.ts]](src/nth/index.d.ts)
-- [Pull [src/pull/index.d.ts]](src/pull/index.d.ts)
-- [Range [src/range/index.d.ts]](src/range/index.d.ts)
 - [Reverse [src/reverse/index.d.ts]](src/reverse/index.d.ts)
 - [Size [src/size/index.d.ts]](src/size/index.d.ts)
-- [Slice [src/slice/index.d.ts]](src/slice/index.d.ts)
+- [Concat [src/concat/index.d.ts]](src/concat/index.d.ts)
+- [Drop [src/drop/index.d.ts]](src/drop/index.d.ts)
 - [Take [src/take/index.d.ts]](src/take/index.d.ts)
 - [Uniq [src/uniq/index.d.ts]](src/uniq/index.d.ts)
+- [Last [src/last/index.d.ts]](src/last/index.d.ts)
+- [Includes [src/includes/index.d.ts]](src/includes/index.d.ts)
+- [IndexOf [src/indexOf/index.d.ts]](src/indexOf/index.d.ts)
+- [Difference [src/difference/index.d.ts]](src/difference/index.d.ts)
+- [Intersection [src/intersection/index.d.ts]](src/intersection/index.d.ts)
+- [Slice [src/slice/index.d.ts]](src/slice/index.d.ts)
+- [Flatten [src/flatten/index.d.ts]](src/flatten/index.d.ts)
+- [Initial [src/initial/index.d.ts]](src/initial/index.d.ts)
+- [Pull [src/pull/index.d.ts]](src/pull/index.d.ts)
+- [Compact [src/compact/index.d.ts]](src/compact/index.d.ts)
+- [Chunk [src/chunk/index.d.ts]](src/chunk/index.d.ts)
 - [Zip [src/zip/index.d.ts]](src/zip/index.d.ts)
+- [Range [src/range/index.d.ts]](src/range/index.d.ts)
+- [Nth [src/nth/index.d.ts]](src/nth/index.d.ts)
 
 #### Sorting
 
 - [Quick-sort [src/quickSort/index.d.ts]](src/quickSort/index.d.ts)
 - [Merge-sort [src/mergeSort/index.d.ts]](src/mergeSort/index.d.ts)
+
+#### Utility
+
+- [IsEqual [src/isEqual/index.d.ts]](src/isEqual/index.d.ts)
+- [InRange [src/inRange/index.d.ts]](src/inRange/index.d.ts)
 
 ### Additional links
 
