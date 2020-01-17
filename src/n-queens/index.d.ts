@@ -14,7 +14,8 @@ import {
 // The type representing a board.
 type Board = Array<number>;
 
-//
+// Place N chess queens on an N×N chessboard so that no two queens threaten each other:
+// https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/n-queens.
 export type nQueens<
   //
   N extends number,

@@ -23,7 +23,7 @@ export * from './min';
 export * from './multiply';
 export * from './nth';
 export * from './pull';
-export * from './queens';
+export * from './n-queens';
 export * from './quickSort';
 export * from './range';
 export * from './reverse';

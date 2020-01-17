@@ -8,7 +8,7 @@
 
 The goal of this project is educational and humoristic. I used recursion a lot and had to find creative solutions to overcome [some limitations](https://github.com/microsoft/TypeScript/issues/28663) of the type system. Even though I tried, it's impossible to implement a handful of functions until [several features](https://github.com/microsoft/TypeScript/issues/1213) are implemented in TypeScript.
 
-Just to see how far I can push it, I tried implementing the classical [Eight queens puzzle](https://en.wikipedia.org/wiki/Eight_queens_puzzle). It's crazy that it actually works, [check it out](src/queens/index.d.ts).
+Just to see how far I can push it, I tried implementing the classical [Eight queens puzzle](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/n-queens). It's crazy that it actually works, [check it out](src/n-queens/index.d.ts).
 
 ### Run the code locally
 
@@ -80,6 +80,10 @@ Here's the list of currently implemented functions:
 
 - [IsEqual [src/isEqual/index.d.ts]](src/isEqual/index.d.ts)
 - [InRange [src/inRange/index.d.ts]](src/inRange/index.d.ts)
+
+#### Special
+
+- [N-Queens [src/n-queens/index.d.ts]](src/n-queens/index.d.ts)
 
 ### Additional links
 
