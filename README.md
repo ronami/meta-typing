@@ -84,6 +84,7 @@ Here's the list of currently implemented functions:
 #### Puzzles
 
 - [N-Queens [src/n-queens/index.d.ts]](src/n-queens/index.d.ts)
+- [Towers of Hanoi [src/hanoi/index.d.ts]](src/hanoi/index.d.ts)
 
 ### Additional links
 

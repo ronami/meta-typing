@@ -8,6 +8,7 @@ export * from './divide';
 export * from './drop';
 export * from './flatten';
 export * from './gte';
+export * from './hanoi';
 export * from './head';
 export * from './includes';
 export * from './indexOf';
