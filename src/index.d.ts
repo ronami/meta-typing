@@ -35,6 +35,6 @@ export * from './tail';
 export * from './take';
 export * from './uniq';
 export * from './utils/lists';
-export * from './utils/logic';
 export * from './utils/math';
+export * from './utils/misc';
 export * from './zip';
