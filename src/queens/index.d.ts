@@ -9,15 +9,10 @@ import {
   Add,
   Substract,
   Inc,
-  Not,
-  And,
 } from '..';
 
 // The type representing a board.
 type Board = Array<number>;
-
-// Helper function, the opposite of IsEqual.
-type IsNotEqual<A, B> = Not<IsEqual<A, B>>;
 
 //
 export type nQueens<
@@ -88,13 +83,13 @@ type IsSafe<
   //
   0: true;
   //
-  1: IsNotEqual<X, C> extends infer A
-    ? IsNotEqual<X, Add<C, N>> extends infer B
-      ? IsNotEqual<X, Substract<C, N>> extends infer C
-        ? IsSafe<X, Tail<T>, Inc<N>> extends infer D
-          ? And<Cast<[A, B, C, D], Array<boolean>>>
-          : never
-        : never
-      : never
-    : never;
+  1: IsEqual<X, C> extends false
+    ? IsEqual<X, Add<C, N>> extends false
+      ? IsEqual<X, Substract<C, N>> extends false
+        ? IsSafe<X, Tail<T>, Inc<N>> extends true
+          ? true
+          : false
+        : false
+      : false
+    : false;
 }[T extends [] ? 0 : 1];
