@@ -1,12 +1,12 @@
 ## 📚 Meta-Typing
 
-> Lodash's functions and other algorithms implemented with TypeScript's type system
+> Lodash's functions and various algorithms implemented purely with TypeScript's type system
 
 ### Introduction
 
 [TypeScript](https://github.com/Microsoft/TypeScript)'s type system is a programming language that runs when we compile our code. Normally, we use it to annotate our code so TypeScript can help us find bugs before we run it. In this project, however, I tried to push TypeScript's type system to its limits by implementing many of [Lodash](https://github.com/lodash/lodash)'s functions, purely on the shoulders of the type system.
 
-The goal of this project is educational and humoristic and it's not meant for practical use. I used recursion a lot and had to find creative solutions to overcome [some limitations](https://github.com/microsoft/TypeScript/issues/28663) of the type system. Even though I tried, it's impossible to implement a handful of functions until [several features](https://github.com/microsoft/TypeScript/issues/1213) are implemented in TypeScript.
+The goal of this project is educational and humoristic. I used recursion a lot and had to find creative solutions to overcome [some limitations](https://github.com/microsoft/TypeScript/issues/28663) of the type system. Even though I tried, it's impossible to implement a handful of functions until [several features](https://github.com/microsoft/TypeScript/issues/1213) are implemented in TypeScript.
 
 Just to see how far I can push it, I tried implementing the classical [Eight queens puzzle](https://en.wikipedia.org/wiki/Eight_queens_puzzle). It's crazy that it actually works, [check it out](src/queens/index.d.ts).
 
