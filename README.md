@@ -81,7 +81,7 @@ Here's the list of currently implemented functions:
 - [IsEqual [src/isEqual/index.d.ts]](src/isEqual/index.d.ts)
 - [InRange [src/inRange/index.d.ts]](src/inRange/index.d.ts)
 
-#### Special
+#### Puzzles
 
 - [N-Queens [src/n-queens/index.d.ts]](src/n-queens/index.d.ts)
 
