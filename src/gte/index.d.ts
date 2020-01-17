@@ -12,14 +12,14 @@ import { Inc, IsNever } from '..';
 // than 10) we return `never`. Similarily to how the `Infinity` value works in JavaScript.
 //
 // Notice that the function is implemented with an object and a ternary check that accesses
-// one of it's properties:
+// one of its properties:
 //
 // {
 //   0: A;
 //   1: B;
 // }[T extends H ? 0 : 1]
 //
-// This is essentially the same as writting: `T extends H ? A : B`. If this type is using
+// This is essentially the same as writing: `T extends H ? A : B`. If this type is using
 // recursion, using the latter approach quickly results with type errors of infinite recursion
 // so the first option is used to avoid false compiler errors.
 export type Gte<
@@ -35,7 +35,7 @@ export type Gte<
   1: false;
   // None of them are `never`? Run again by increasing both by 1:
   2: Gte<Inc<A>, Inc<B>>;
-  // For example, callin Gte<9, 7> first checks if any of the values are `never`. Since that's
+  // For example, calling Gte<9, 7> first checks if any of the values are `never`. Since that's
   // false, the recursion increases both by 1 and runs again with: Gte<10, 8>.
   //
   // Then again, since both numbers don't equal `never`, the recursion increases both by 1 and

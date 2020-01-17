@@ -1,4 +1,4 @@
-// Increases a number's value by 1. For example: Inc<3> should return 4.
+// Increases a number's value by 1. For example, Inc<3> should return 4.
 //
 // I had to implement this as a truth table Since TypeScript's type system has no
 // support for arithmetic. Because of that, it will return `never` for values bigger
@@ -29,7 +29,7 @@ export type Inc<T extends number> =
     ? 10
     : never; // If it's out of scope, just return `never`.
 
-// Decreases a number's value by 1. For example: Dec<3> should return 2.
+// Decreases a number's value by 1. For example, Dec<3> should return 2.
 //
 // I had to implement this as a truth table Since TypeScript's type system has no
 // support for arithmetic. Because of that, it will return `never` for values bigger

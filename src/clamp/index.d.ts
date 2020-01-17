@@ -5,7 +5,6 @@ import { Gte, Lte } from '..';
 //
 //   type S = Clamp<8, 0, 5>; // 5
 //
-// Another one which isn't recursive, yay for us.
 export type Clamp<A extends number, L extends number, U extends number> =
   // If `A` is greater than the upper limit, return the upper limit. Otherwise,
   // if `A` is less than the lower limit, return the lower limit.

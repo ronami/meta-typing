@@ -1,6 +1,6 @@
 ## 📚 Meta-Typing
 
-> Lodash's functions implemented with TypeScript's type system
+> Lodash's functions and other algorithms implemented with TypeScript's type system
 
 ### Introduction
 

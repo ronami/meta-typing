@@ -23,7 +23,7 @@ export type Lte<
   1: true;
   // None of them are `never`? Run again by decreasing both by 1:
   2: Lte<Inc<A>, Inc<B>>;
-  // For example, callin Lte<9, 7> first checks if any of the values are `never`. Since that's
+  // For example, calling Lte<9, 7> first checks if any of the values are `never`. Since that's
   // false, the recursion increases both by 1 and runs again with: Lte<10, 8>.
   //
   // Then again, since both numbers don't equal `never`, the recursion increases both by 1 and
