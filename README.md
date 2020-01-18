@@ -22,7 +22,7 @@ $ yarn
 
 Open a file of any function or algorithm and hover over the types to see the results of "running" that function with some input (try hovering the resulting type):
 
-![Slice](assets/slice.png)
+![merge-sort](assets/merge-sort.png)
 
 You can also run tests (written with [tsd](https://github.com/SamVerschueren/tsd)) with:
 
