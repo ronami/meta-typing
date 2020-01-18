@@ -37,9 +37,9 @@ export type QuickSort<
   //
   0: [];
   //
-  1: SmallerHalf<X, Z> extends infer Qs
+  1: SmallerPart<X, Z> extends infer Qs
     ? QuickSort<Cast<Qs, Array<number>>> extends infer S
-      ? BiggerHalf<X, Z> extends infer Qb
+      ? BiggerPart<X, Z> extends infer Qb
         ? QuickSort<Cast<Qb, Array<number>>> extends infer B
           ? Unshift<Cast<B, Array<number>>, X> extends infer G
             ? Concat<Cast<S, Array<number>>, Cast<G, Array<number>>>
@@ -50,38 +50,38 @@ export type QuickSort<
     : never;
 }[T extends [] ? 0 : 1];
 
-//
-type SmallerHalf<
+// Returns an array with all the values that are smaller than or equal the pivot (`E`).
+type SmallerPart<
   //
   E extends number,
   //
   T extends Array<number>,
-  //
+  // An accumulator to collect the results.
   R extends Array<number> = []
 > = {
   //
   0: Reverse<R>;
   //
-  1: SmallerHalf<E, Tail<T>, Unshift<R, Head<T>>>;
+  1: SmallerPart<E, Tail<T>, Unshift<R, Head<T>>>;
   //
-  2: SmallerHalf<E, Tail<T>, R>;
+  2: SmallerPart<E, Tail<T>, R>;
 }[T extends [] ? 0 : Lte<Head<T>, E> extends true ? 1 : 2];
 
-//
-type BiggerHalf<
+// Returns an array with all the values that are bigger than the pivot (`E`).
+type BiggerPart<
   //
   E extends number,
   //
   T extends Array<number>,
-  //
+  // An accumulator to collect the results.
   R extends Array<number> = []
 > = {
   //
   0: Reverse<R>;
   //
-  1: BiggerHalf<E, Tail<T>, Unshift<R, Head<T>>>;
+  1: BiggerPart<E, Tail<T>, Unshift<R, Head<T>>>;
   //
-  2: BiggerHalf<E, Tail<T>, R>;
+  2: BiggerPart<E, Tail<T>, R>;
 }[T extends []
   ? 0
   : IsEqual<Head<T>, E> extends true
