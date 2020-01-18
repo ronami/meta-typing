@@ -4,7 +4,9 @@ import { Substract, Dec, Inc, Cast, IsNever } from '..';
 //
 //   type S = Divide<6, 2>; // 3
 //
-// Note: this version is only going to work for computation that result with whole numbers
+// Note: this version is only going to work for computation that result with whole numbers. If
+// a division results in a fraction the result will be rounded down. For example, Divide<5, 2>
+// will result with 2.
 //
 // Also notice that the function is implemented with an object and a ternary check that accesses
 // one of its properties:
@@ -22,19 +24,36 @@ export type Divide<
   A extends number,
   // The second number in a division.
   B extends number,
-  //
+  // An accumulator to collect the result.
   R extends number = 0
 > = {
-  //
-  0: R;
-  //
-  1: Dec<R>;
-  //
+  // Start by checking if `A` is of type `never`. If that's the case then `A` was reduced to a number
+  // bellow 0 and the result is probably a fraction. Return the accumulator minus 1 (since we went a
+  // bit too far into the negative):
+  0: Dec<R>;
+  // Next, check if the value of `A` is 0. If it is, then we reached the end of the recursion (no
+  // fraction). Return the `R` as the result:
+  1: R;
+  // Then, check if the divisor is 0 and return `never` as a way to signal that we can't divide by 0:
   2: never;
+  // Otherwise, run the recursion again by substracting `B`'s value from `A` and increasing `R`'s value by
+  // 1.
   //
+  // Notice that we split the computation into two steps with a condition that will always be true.
+  // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
+  // deep..." from the compiler (See more: https://github.com/microsoft/TypeScript/issues/34933).
   3: Substract<A, B> extends infer G
     ? Divide<Cast<G, number>, B, Inc<R>>
     : never;
-}[IsNever<A> extends true ? 1 : A extends 0 ? 0 : B extends 0 ? 2 : 3];
-
-type S = Divide<3, 2>;
+  // For example, the calculation of Substract<6, 2> will first translate into Substract<4, 2, 1>. `A`'s
+  // value was reduced by 2 (`B`'s value) and the accumulator was increased by 1.
+  //
+  // Then, since `A`'s value isn't 0 or `never`, we run again with: Substract<2, 2, 2>. Again, `A`'s
+  // value was reduced by `B`'s value and the accumulator was increased by 1 yet again.
+  //
+  // Next, the calculation translates into Substract<0, 2, 3>. `A`'s value was reduced again and the
+  // accumulator has increased by 1 again.
+  //
+  // Finally, since now `A`'s value equals 0, the recursion terminates and returns the accumulator's
+  // value as the result: 3.
+}[IsNever<A> extends true ? 0 : A extends 0 ? 1 : B extends 0 ? 2 : 3];
