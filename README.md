@@ -1,36 +1,36 @@
 ## 📚 Meta-Typing
 
-> Lodash's functions and various algorithms implemented purely with TypeScript's type system
+> Various functions and algorithms implemented purely with TypeScript's type system
 
 ### Introduction
 
-[TypeScript](https://github.com/Microsoft/TypeScript)'s type system is a programming language that runs when we compile our code. Normally, we use it to annotate our code so TypeScript can help us find bugs before we run it. In this project, however, I tried to push TypeScript's type system to its limits by implementing many of [Lodash](https://github.com/lodash/lodash)'s functions, purely on the shoulders of the type system.
+[TypeScript](https://github.com/Microsoft/TypeScript)'s type system is a programming language that runs when we compile our code. Normally, we use it to annotate our code so TypeScript can help us find bugs before we run it. In this project, however, I tried to push TypeScript's type system to its limits by implementing various [functions](https://lodash.com/docs) and [algorithms](https://github.com/trekhleb/javascript-algorithms), purely on the shoulders of the type system.
 
-The goal of this project is educational and humoristic. I used recursion a lot and had to find creative solutions to overcome [some limitations](https://github.com/microsoft/TypeScript/issues/28663) of the type system. Even though I tried, it's impossible to implement a handful of functions until [several features](https://github.com/microsoft/TypeScript/issues/1213) are implemented in TypeScript.
+The goal of this project is to explain TypeScript's type system in an unconventional way. I used recursion a lot and had to find creative solutions to overcome [some limitations](https://github.com/microsoft/TypeScript/issues/28663) of the type system. Each function and algorithm has its own implementation with comments describing in detail what's going on.
 
 Just to see how far I can push it, I tried implementing the classical [Eight queens puzzle](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/n-queens). It's crazy that it actually works, [check it out](src/n-queens/index.d.ts).
 
-### Run the code locally
+*☝ Please note that this project is meant to be used for learning purposes and not for practical use.*
 
-Every function has its own folder inside the [src](src) folder. In each folder, you will find the function implementation and a test file for that function. I added comments to each function's code to explain what's going on.
+### Run the code locally
 
 Start by installing dependencies:
 
 ```
-$ npm install
+$ yarn
 ```
 
-Open a file of any function and hover over the types to see the results of "running" that function with some input (try hovering the resulting type):
+Open a file of any function or algorithm and hover over the types to see the results of "running" that function with some input (try hovering the resulting type):
 
 ![Slice](assets/slice.png)
 
 You can also run tests (written with [tsd](https://github.com/SamVerschueren/tsd)) with:
 
 ```
-$ npm test
+$ yarn test
 ```
 
-Here's the list of currently implemented functions:
+Here's the list of currently implemented functions and algorithms:
 
 #### Math:
 
