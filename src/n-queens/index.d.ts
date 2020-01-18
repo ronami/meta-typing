@@ -104,11 +104,12 @@ type Develop<
   2: Develop<N, T, Inc<X>, R>;
 }[X extends Inc<N> ? 0 : IsSafe<X, T> extends true ? 1 : 2];
 
-//
+// Checks if it's safe to place a chess queen in column `X` on the board `T` so it's not threatened
+// by other queens on the board.
 type IsSafe<
-  //
+  // The column number to check it's safe to place a queen on the board.
   X extends number,
-  //
+  // The board, possibly with other queens already placed on, to check against.
   T extends Board,
   //
   N extends number = 1,
