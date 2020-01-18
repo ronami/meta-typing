@@ -12,7 +12,7 @@ Just to see how far I can push it, I tried implementing the classical [Eight que
 
 *☝ Please note that this project is meant to be used for learning purposes and not for practical use.*
 
-### Run the code locally
+### Try running the code
 
 Start by installing dependencies:
 
@@ -30,7 +30,7 @@ You can also run tests (written with [tsd](https://github.com/SamVerschueren/tsd
 $ yarn test
 ```
 
-Here's the list of currently implemented functions and algorithms:
+### Functions and algorithms:
 
 #### Math:
 
