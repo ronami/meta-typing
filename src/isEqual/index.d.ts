@@ -1,4 +1,4 @@
-// Performs a deep comparison between two values to determine if they are equivalent:
+// Compares between two values to determine if they are equivalent:
 // https://lodash.com/docs/4.17.15#isEqual.
 //
 //   type S = IsEqual<{ 'a': 1 }, { 'a': 1 }>; // true

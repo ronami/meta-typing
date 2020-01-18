@@ -1,6 +1,6 @@
 import { Head, Lte, Tail } from '..';
 
-// Computes the minimum value of array: https://lodash.com/docs/4.17.15#min.
+// Computes the minimum value of an array: https://lodash.com/docs/4.17.15#min.
 //
 //   type S = Min<[1, 2, 3]>; // 1
 //

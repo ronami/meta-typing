@@ -1,4 +1,4 @@
-// Gets the first element of array: https://lodash.com/docs/4.17.15#head.
+// Gets the first element of an array: https://lodash.com/docs/4.17.15#head.
 //
 //   type S = Head<[1, 2, 3]>; // 1
 //

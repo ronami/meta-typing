@@ -1,6 +1,6 @@
 import { Dec, Tail } from '..';
 
-// Creates a slice of array with n elements dropped from the beginning:
+// Creates a slice of an array with n elements dropped from the beginning:
 // https://lodash.com/docs/4.17.15#drop.
 //
 //   type S = Drop<[1, 2, 3], 1>; // [2, 3]

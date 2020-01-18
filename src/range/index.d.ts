@@ -1,7 +1,7 @@
 import { Inc, Unshift, Reverse, Gte } from '..';
 
-// Creates an array of numbers (positive and/or negative) progressing from start
-// up to, but not including, end: https://lodash.com/docs/4.17.15#range.
+// Creates an array of numbers progressing from start up to, but not including, end:
+// https://lodash.com/docs/4.17.15#range.
 //
 //   type S = Range<1, 5>; // [1, 2, 3, 4]
 //

@@ -1,4 +1,4 @@
-// Gets all but the first element of array: https://lodash.com/docs/4.17.15#tail.
+// Gets all but the first element of an array: https://lodash.com/docs/4.17.15#tail.
 //
 //   type S = Tail<[1, 2, 3]>; // [2, 3]
 //

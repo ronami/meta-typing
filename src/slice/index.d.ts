@@ -1,6 +1,6 @@
 import { Tail, Head, Unshift, Reverse, Dec } from '..';
 
-// Creates a slice of array from start up to, but not including, end:
+// Creates a slice of an array from start up to, but not including, end:
 // https://lodash.com/docs/4.17.15#slice.
 //
 //   type S = Slice<[1, 2, 3, 4, 5, 6], 2, 3>; // [3, 4, 5]

@@ -1,6 +1,6 @@
 import { Tail, Head, Unshift, InEvery, Reverse } from '..';
 
-// Creates an array of array values not included in the other given arrays:
+// Creates an array of values from the first array that are not included in the other given arrays:
 // https://lodash.com/docs/4.17.15#difference.
 //
 //   type S = Difference<[[1, 2, 3], [2, 3, 4]]>; // [1]

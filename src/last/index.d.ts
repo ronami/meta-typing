@@ -1,6 +1,6 @@
 import { Tail, Head } from '..';
 
-// Gets the last element of array: https://lodash.com/docs/4.17.15#last.
+// Gets the last element of an array: https://lodash.com/docs/4.17.15#last.
 //
 //   type S = Last<[1, 2, 3]>; // 3
 //

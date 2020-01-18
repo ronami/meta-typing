@@ -1,6 +1,6 @@
 import { Head, Gte, Tail } from '..';
 
-// Computes the maximum value of array: https://lodash.com/docs/4.17.15#max.
+// Computes the maximum value of an array: https://lodash.com/docs/4.17.15#max.
 //
 //   type S = Max<[1, 2, 3]>; // 3
 //
