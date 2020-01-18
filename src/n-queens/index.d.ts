@@ -13,9 +13,9 @@ import {
 
 // The type to represent a board with queens placed on it.
 //
-// For example, the array [3, 1, 4, 2] represents a board in which a queen is placed in the first row
-// on column 3, on the second row in column 1, on the third row in column 4 and finally another queen
-// in the 4th row on column 2:
+// For example, the array [2, 4, 1, 3] represents a board (read from right to left) in which a queen
+// is placed in the first row on column 3, on the second row in column 1, on the third row in column
+// 4 and finally another queen in the 4th row on column 2:
 //    _______
 // 1 |_|_|#|_|
 // 2 |#|_|_|_|
@@ -62,7 +62,29 @@ type Step<
     : never;
 }[B extends [] ? 0 : 1];
 
+// Takes an existing board and returns an array of all possible boards that can be developed from it by
+// placing a queen in the next row.
 //
+// For example, the board [3] represents a board with only one queen (placed in the first row on
+// the 3rd column):
+//    _______
+// 1 |_|_|#|_|
+// 2 |_|_|_|_|
+// 3 |_|_|_|_|
+// 4 |_|_|_|_|
+//    1 2 3 4
+//
+// For this board, we can place a queen safely in row 2 in the 1st column:
+//    _______
+// 1 |_|_|#|_|
+// 2 |#|_|_|_|
+// 3 |_|_|_|_|
+// 4 |_|_|_|_|
+//    1 2 3 4
+//
+// We can't put a queen anywhere else on row 2 because it will be threatened by our first queen
+// on row 1. For this board ([3]), `Develop` will return just one board that's safe to continue with:
+// [[1, 3]].
 type Develop<
   //
   N extends number,
