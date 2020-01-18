@@ -113,7 +113,7 @@ type IsSafe<
   //
   N extends number = 1,
   //
-  C extends number = T[0]
+  C extends number = Head<T>
 > = {
   //
   0: true;
