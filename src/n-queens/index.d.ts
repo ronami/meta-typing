@@ -4,7 +4,6 @@ import {
   Tail,
   IsEqual,
   Unshift,
-  Reverse,
   Cast,
   Add,
   Substract,
@@ -45,7 +44,7 @@ export type nQueens<
 
 //
 type Step<
-  //
+  // The size of the board and the number of queens to place.
   N extends number,
   //
   B extends Array<Board>,
@@ -86,17 +85,19 @@ type Step<
 // on row 1. For this board ([3]), `Develop` will return just one board that's safe to continue with:
 // [[1, 3]].
 type Develop<
-  //
+  // The size of the board and the number of queens to place.
   N extends number,
-  //
+  // An existing board to develop. Returns all the possible boards from placing a queen on the next
+  // row safely.
   T extends Board,
-  //
+  // Internal counter that starts at 1 and ends at N. Every time the recursion runs one of the
+  // columns on the next row are checked. This counter helps track which column is being checked now.
   X extends number = 1,
-  //
+  // An accumulator to collect all safe possible board placements.
   R extends Array<Board> = []
 > = {
   //
-  0: Reverse<R>;
+  0: R;
   //
   1: Develop<N, T, Inc<X>, Unshift<R, Unshift<T, X>>>;
   //
