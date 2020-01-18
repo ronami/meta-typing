@@ -17,11 +17,11 @@ type Board = Array<number>;
 // Place N chess queens on an N×N chessboard so that no two queens threaten each other:
 // https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/n-queens.
 export type nQueens<
-  //
+  // The size of the board and the number of queens to place.
   N extends number,
-  //
+  // An array to hold all possible boards (solutions). Starts with an empty board ([]).
   B extends Array<Board> = [[]],
-  //
+  // A counter from 0 to `N` that ends the recursion.
   C extends number = 0
 > = {
   //
