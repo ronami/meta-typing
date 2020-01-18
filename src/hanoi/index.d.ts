@@ -1,6 +1,7 @@
 import { Dec, Concat, Unshift, Cast } from '..';
 
-//
+// A mathematical game or puzzle that consists of three rods and a number of disks of different sizes:
+// https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/hanoi-tower.
 export type Hanoi<
   //
   N extends number,
