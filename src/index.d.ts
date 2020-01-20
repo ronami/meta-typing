@@ -1,4 +1,5 @@
 export * from './add';
+export * from './binary-trees';
 export * from './chunk';
 export * from './clamp';
 export * from './compact';
