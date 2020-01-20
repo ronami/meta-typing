@@ -13,9 +13,13 @@ import { Head, Lte, Tail, Unshift, Cast, Take, Divide, Size, Drop } from '..';
 //   1: B;
 // }[T extends H ? 0 : 1]
 //
-// This is essentially the same as writing: `T extends H ? A : B`. If this type is using
-// recursion, using the latter approach quickly results with type errors of infinite recursion
-// so the first option is used to avoid false compiler errors.
+// This is the same as writing: `T extends H ? A : B`. If the condition is true then
+// `A` is returned because it's referenced by the `0` key. Otherwise it's `B` that's returned
+// since it's referenced by the `1` key.
+//
+// TypScript's type system doesn't support recursive types and the above example is a way
+// of going around it. Please note that it's not something TypeScript officially supports:
+// https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type MergeSort<
   // The input array.
   T extends Array<any>

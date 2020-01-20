@@ -4,11 +4,11 @@ import { Substract, Dec, Inc, Cast, IsNever } from '..';
 //
 //   type S = Divide<6, 2>; // 3
 //
-// Note: this version is only going to work for computation that result with whole numbers. If
+// This version is only going to work for computation that result with whole numbers. If
 // a division results in a fraction the result will be rounded down. For example, Divide<5, 2>
 // will result with 2.
 //
-// Also notice that the function is implemented with an object and a ternary check that accesses
+// Notice that the function is implemented with an object and a ternary check that accesses
 // one of its properties:
 //
 // {
@@ -16,9 +16,13 @@ import { Substract, Dec, Inc, Cast, IsNever } from '..';
 //   1: B;
 // }[T extends H ? 0 : 1]
 //
-// This is essentially the same as writing: `T extends H ? A : B`. If this type is using
-// recursion, using the latter approach quickly results with type errors of infinite recursion
-// so the first option is used to avoid false compiler errors.
+// This is the same as writing: `T extends H ? A : B`. If the condition is true then
+// `A` is returned because it's referenced by the `0` key. Otherwise it's `B` that's returned
+// since it's referenced by the `1` key.
+//
+// TypScript's type system doesn't support recursive types and the above example is a way
+// of going around it. Please note that it's not something TypeScript officially supports:
+// https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Divide<
   // The first number in a division.
   A extends number,
