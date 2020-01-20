@@ -94,3 +94,4 @@ $ yarn test
 - [TypeScripts Type System is Turing Complete](https://github.com/microsoft/TypeScript/issues/14833)
 - [Emulating a 4-Bit Virtual Machine in TypeScript's type system](https://gist.github.com/acutmore/9d2ce837f019608f26ff54e0b1c23d6e)
 - [Algorithms and data structures implemented in JavaScript](https://github.com/trekhleb/javascript-algorithms)
+- [How to master advanced TypeScript patterns](https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts)

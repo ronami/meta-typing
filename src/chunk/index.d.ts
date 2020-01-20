@@ -38,7 +38,7 @@ export type Chunk<
   //
   // Notice that we split the computation into three steps, with conditions that will always be true.
   // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
-  // deep..." from the compiler (See more: https://github.com/microsoft/TypeScript/issues/34933).
+  // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
   //
   // Normally, the computation bellow is the same as `Chunk<Drop<T, S>, S, Drop<T, S>>`.
   1: Unshift<R, Take<T, S>> extends infer G // Assign result to `G`

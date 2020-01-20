@@ -42,7 +42,7 @@ export type MergeSort<
   //
   // Notice that we split the computation into multiple steps with a condition that will always be true.
   // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
-  // deep..." from the compiler (See more: https://github.com/microsoft/TypeScript/issues/34933).
+  // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
   2: FirstHalf<T> extends infer B // Assign result to `B`
     ? MergeSort<Cast<B, Array<any>>> extends infer G // Assign result to `G`
       ? SecondHalf<T> extends infer N // Assign result to `N`
@@ -89,7 +89,7 @@ type Merge<
     //
     // Notice that we split the computation into two steps with a condition that will always be true.
     // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
-    // deep..." from the compiler (See more: https://github.com/microsoft/TypeScript/issues/34933).
+    // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
     0: Merge<Tail<A>, B> extends infer G // Assign result to `G`
       ? Unshift<Cast<G, Array<any>>, firstA>
       : never;

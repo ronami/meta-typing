@@ -39,7 +39,7 @@ export type Sum<
   //
   // We split the computation into two steps, with a condition that will always be true.
   // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
-  // deep..." from the compiler (See more: https://github.com/microsoft/TypeScript/issues/34933).
+  // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
   //
   // Notice that after we assign the first computation of:
   //
