@@ -43,10 +43,10 @@ export type MergeSort<
   // Notice that we split the computation into multiple steps with a condition that will always be true.
   // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
   // deep..." from the compiler (See more: https://github.com/microsoft/TypeScript/issues/34933).
-  2: FirstHalf<T> extends infer B
-    ? MergeSort<Cast<B, Array<any>>> extends infer G
-      ? SecondHalf<T> extends infer N
-        ? MergeSort<Cast<N, Array<any>>> extends infer H
+  2: FirstHalf<T> extends infer B // Assign result to `B`
+    ? MergeSort<Cast<B, Array<any>>> extends infer G // Assign result to `G`
+      ? SecondHalf<T> extends infer N // Assign result to `N`
+        ? MergeSort<Cast<N, Array<any>>> extends infer H // Assign result to `H`
           ? Merge<Cast<G, Array<any>>, Cast<H, Array<any>>>
           : never
         : never
@@ -90,12 +90,12 @@ type Merge<
     // Notice that we split the computation into two steps with a condition that will always be true.
     // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
     // deep..." from the compiler (See more: https://github.com/microsoft/TypeScript/issues/34933).
-    0: Merge<Tail<A>, B> extends infer G
+    0: Merge<Tail<A>, B> extends infer G // Assign result to `G`
       ? Unshift<Cast<G, Array<any>>, firstA>
       : never;
     // Otherwise, run the recursion again for the rest of `B` and insert the first element of `B`
     // into the beginning of the result.
-    1: Merge<Tail<B>, A> extends infer G
+    1: Merge<Tail<B>, A> extends infer G // Assign result to `G`
       ? Unshift<Cast<G, Array<any>>, firstB>
       : never;
   }[Lte<firstA, firstB> extends true ? 0 : 1];

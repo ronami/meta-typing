@@ -30,7 +30,9 @@ export type Sum<
   0: R;
   // Otherwise, we run the recursion again with the rest of the array, and add the first
   // element of the array to our accumulated result (R):
-  1: Add<R, Head<A>> extends infer G ? Sum<Tail<A>, Cast<G, number>> : never;
+  1: Add<R, Head<A>> extends infer G // Assign result to `G`
+    ? Sum<Tail<A>, Cast<G, number>>
+    : never;
   // This may look confusing but instead of computing:
   //
   //   Sum<Tail<A>, Add<R, Head<A>>>
@@ -44,7 +46,8 @@ export type Sum<
   //   Add<R, Head<A>>
   //
   // to the value of G, we also pass it to a call to Cast. Normally we don't have to do that
-  // but the compiler doesn't know that G is a number.
+  // but the compiler doesn't know that `G` is a number.
+  //
   // By casting it we tell the compiler that it is always going to get a number: Either the value
   // we pass is of type `number`, or that it's going to use the general `number` type.
 }[A extends [] ? 0 : 1];

@@ -41,8 +41,8 @@ export type Chunk<
   // deep..." from the compiler (See more: https://github.com/microsoft/TypeScript/issues/34933).
   //
   // Normally, the computation bellow is the same as `Chunk<Drop<T, S>, S, Drop<T, S>>`.
-  1: Unshift<R, Take<T, S>> extends infer G
-    ? Drop<T, S> extends infer Z
+  1: Unshift<R, Take<T, S>> extends infer G // Assign result to `G`
+    ? Drop<T, S> extends infer Z // Assign result to `Z`
       ? Chunk<Cast<Z, Array<any>>, S, Cast<G, Array<any>>>
       : never
     : never;

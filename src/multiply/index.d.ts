@@ -50,5 +50,7 @@ export type Multiply<
   // but the compiler doesn't know that G is a number.
   // By casting it we tell the compiler that it is always going to get a number: Either the value
   // we pass is of type `number`, or that it's going to use the general `number` type.
-  3: Multiply<A, Dec<B>> extends infer G ? Add<A, Cast<G, number>> : never;
+  3: Multiply<A, Dec<B>> extends infer G // Assign result to `G`
+    ? Add<A, Cast<G, number>>
+    : never;
 }[A extends 0 ? 0 : B extends 0 ? 0 : B extends 1 ? 1 : A extends 1 ? 2 : 3];

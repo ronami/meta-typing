@@ -46,7 +46,7 @@ export type Divide<
   // Notice that we split the computation into two steps with a condition that will always be true.
   // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
   // deep..." from the compiler (See more: https://github.com/microsoft/TypeScript/issues/34933).
-  3: Substract<A, B> extends infer G
+  3: Substract<A, B> extends infer G // Assign result to `G`
     ? Divide<Cast<G, number>, B, Inc<R>>
     : never;
   // For example, the calculation of Substract<6, 2> will first translate into Substract<4, 2, 1>. `A`'s
