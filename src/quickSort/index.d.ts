@@ -38,7 +38,8 @@ export type QuickSort<
   // A local variable for the tail for `T`.
   Z extends Array<number> = Tail<T>
 > = {
-  //
+  // Start by checking if the input is empty. If it is, return it. A sorted empty list
+  // is an empty list.
   0: [];
   //
   1: SmallerPart<X, Z> extends infer Qs

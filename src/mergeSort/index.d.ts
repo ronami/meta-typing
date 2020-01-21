@@ -24,7 +24,8 @@ export type MergeSort<
   // The input array.
   T extends Array<any>
 > = {
-  // Start by checking if the input is empty. If it is, return it.
+  // Start by checking if the input is empty. If it is, return it. A sorted empty list
+  // is an empty list.
   0: [];
   // Then, since we're going to break the array into chunks that may have one element in them
   // check if `T` is an array with one element. If that's the case, there's no need to sort it.
