@@ -30,8 +30,7 @@ import {
 //
 type Board = Array<number>;
 
-// Place N chess queens on an N×N chessboard so that no two queens threaten each other:
-// https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/n-queens.
+// Place N chess queens on an N×N chessboard so that no two queens threaten each other.
 export type nQueens<
   // The size of the board and the number of queens to place.
   N extends number,
@@ -39,29 +38,43 @@ export type nQueens<
   B extends Array<Board> = [[]],
   // A counter from 0 to `N` that ends the recursion.
   C extends number = 0
+  // A recursive function that runs `Step` `N` times. Every time `Queens` runs again it
+  // checks that in every board a queen can be placed on the next row.
 > = {
-  //
+  // Since the recursion runs `N` times, if `C` that started at 0 equals `N`, end the
+  // recursion.
   0: B;
+  // Otherwise, run `Step` and pass its resulting boards to another recursive call to
+  // `Queens`.
   //
-  1: Step<N, B> extends infer G
+  // Notice that we split the computation into two steps with a condition that will always be true.
+  // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
+  // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
+  1: Step<N, B> extends infer G // Asign result to `G`
     ? nQueens<N, Cast<G, Array<any>>, Inc<C>>
     : never;
 }[IsEqual<N, C> extends true ? 0 : 1];
 
-//
+// Iterate over the array of boards and tries to call `Develop` on every one. `Develop` will try
+// to place a queen in the next row in every one of the boards.
 type Step<
   // The size of the board and the number of queens to place.
   N extends number,
-  //
+  // An array to hold all possible boards (solutions).
   B extends Array<Board>,
-  //
+  // An array to accumulate the results. Eventually it is returned.
   R extends Array<any> = []
 > = {
-  //
+  // If we finished iterating over the array of boards, return the accumulator.
   0: R;
+  // Otherwise, run `Develop` over the first board, concatenate its resulting boards
+  // into the accumulator, then run `Step` again for the rest of the boards.
   //
-  1: Develop<N, Head<B>> extends infer G
-    ? Concat<R, Cast<G, Array<any>>> extends infer H
+  // Notice that we split the computation into multiple steps with a condition that will always be true.
+  // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
+  // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
+  1: Develop<N, Head<B>> extends infer G // Assign result to `G`
+    ? Concat<R, Cast<G, Array<any>>> extends infer H // Assign result to `H`
       ? Step<N, Tail<B>, Cast<H, Array<any>>>
       : never
     : never;
@@ -96,17 +109,20 @@ type Develop<
   // An existing board to develop. Returns all the possible boards from placing a queen on the next
   // row safely.
   T extends Board,
-  // Internal counter that starts at 1 and ends at N. Every time the recursion runs one of the
-  // columns on the next row are checked. This counter helps track which column is being checked now.
+  // An internal counter that starts at 1 and ends at `N`. This counter helps track which column is
+  // being checked now.
   X extends number = 1,
   // An accumulator to collect all safe possible board placements.
   R extends Array<Board> = []
 > = {
-  //
+  // If we finished iterating over all `N` columns, return the accumulated results.
   0: R;
+  // Otherwise, check if it's safe to place a queen on column `X` on the next row. If it's safe,
+  // run the recursion again and insert the board we checked ([X, ...T]) into the accumulator.
   //
+  // Increase the counter by 1 and run the recursion again.
   1: Develop<N, T, Inc<X>, Unshift<R, Unshift<T, X>>>;
-  //
+  // If it's not safe, skip `X` and run again by increasing the counter by 1.
   2: Develop<N, T, Inc<X>, R>;
 }[X extends Inc<N> ? 0 : IsSafe<X, T> extends true ? 1 : 2];
 
@@ -117,9 +133,9 @@ type IsSafe<
   X extends number,
   // The board, possibly with other queens already placed on, to check against.
   T extends Board,
-  //
+  // An internal counter to track
   N extends number = 1,
-  //
+  // An internal variable that points to the first queen in the board.
   C extends number = Head<T>
 > = {
   //
