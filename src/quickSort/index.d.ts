@@ -33,7 +33,7 @@ import {
 export type QuickSort<
   // The input array.
   T extends Array<number>,
-  // A local variable for the first element in `T`.
+  // A local variable for the first element in `T` (The pivot).
   X extends number = Head<T>,
   // A local variable for the tail for `T`.
   Z extends Array<number> = Tail<T>
@@ -41,12 +41,20 @@ export type QuickSort<
   // Start by checking if the input is empty. If it is, return it. A sorted empty list
   // is an empty list.
   0: [];
+  // Take the first element as the pivot and split the rest of the list into two sub lists:
+  // The elements that are greater than the pivot and those that are smaller than the pivot.
   //
-  1: SmallerPart<X, Z> extends infer Qs
-    ? QuickSort<Cast<Qs, Array<number>>> extends infer S
-      ? BiggerPart<X, Z> extends infer Qb
-        ? QuickSort<Cast<Qb, Array<number>>> extends infer B
-          ? Unshift<Cast<B, Array<number>>, X> extends infer G
+  // Then, recursively sort each of these sub lists and finally concatenate them with the
+  // pivot in the middle.
+  //
+  // Notice that we split the computation into multiple steps with a condition that will always be true.
+  // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
+  // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
+  1: SmallerPart<X, Z> extends infer Qs // Assign result to `Qs`
+    ? QuickSort<Cast<Qs, Array<number>>> extends infer S // Assign result to `S`
+      ? BiggerPart<X, Z> extends infer Qb // Assign result to `Qb`
+        ? QuickSort<Cast<Qb, Array<number>>> extends infer B // Assign result to `B`
+          ? Unshift<Cast<B, Array<number>>, X> extends infer G // Assign result to `G`
             ? Concat<Cast<S, Array<number>>, Cast<G, Array<number>>>
             : never
           : never
