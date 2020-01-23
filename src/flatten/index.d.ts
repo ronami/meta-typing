@@ -35,9 +35,11 @@ export type Flatten<
   H extends Array<any> = Tail<T>
 > = {
   //
-  0: R;
+  finish: R;
   //
-  1: Concat<R, G> extends infer F ? Flatten<H, Cast<F, Array<any>>> : never;
+  'next-array': Concat<R, G> extends infer F
+    ? Flatten<H, Cast<F, Array<any>>>
+    : never;
   //
-  2: Push<R, G> extends infer F ? Flatten<H, Cast<F, Array<any>>> : never;
-}[T extends [] ? 0 : G extends Array<any> ? 1 : 2];
+  next: Push<R, G> extends infer F ? Flatten<H, Cast<F, Array<any>>> : never;
+}[T extends [] ? 'finish' : G extends Array<any> ? 'next-array' : 'next'];

@@ -34,15 +34,15 @@ export type Slice<
   // of the recursion and we return the results we accumulated so far.
   // We reverse it first since we keep inserting elements to it from the beggining (using
   // Unshift):
-  0: Reverse<R>;
+  finish: Reverse<R>;
   // Next up, we check if the start number is 0. If it's not, we run the recursion again
   // on the rest of the array and decrease its value by 1 and wait until it gets to 1:
-  2: Slice<Tail<T>, Dec<S>, E>;
+  skip: Slice<Tail<T>, Dec<S>, E>;
   // If the start position is 0, we check if the end position is 0 too. If it is, then we've
   // finished with the recursion and return the reversed accumulated result (R). Otherwise,
   // we run the recursion again on the rest of the array, with the same start position (0),
   // decrease the end position by 1, and also push the current element into our accumulator:
-  1: Slice<Tail<T>, S, Dec<E>, Unshift<R, Head<T>>>;
+  insert: Slice<Tail<T>, S, Dec<E>, Unshift<R, Head<T>>>;
   // For example, calling Slice<[1, 2, 3, 4], 1, 2> will first translate into:
   // Slice<[2, 3, 4], 0, 2, []>. Notice that the first element was dropped because the start
   // position wasn't 0 yet, and the recursion runs again on the reset of the array.
@@ -58,4 +58,10 @@ export type Slice<
   //
   // Finally, now that both the start and end positions are 0, the reversed accumulator is
   // returned which results with: [2, 3].
-}[T extends [] ? 0 : S extends 0 ? (E extends 0 ? 0 : 1) : 2];
+}[T extends []
+  ? 'finish'
+  : S extends 0
+  ? E extends 0
+    ? 'finish'
+    : 'insert'
+  : 'skip'];

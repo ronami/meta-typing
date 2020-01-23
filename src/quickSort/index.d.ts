@@ -40,7 +40,7 @@ export type QuickSort<
 > = {
   // Start by checking if the input is empty. If it is, return it. A sorted empty list
   // is an empty list.
-  0: [];
+  finish: [];
   // Take the first element as the pivot and split the rest of the list into two sub lists:
   // The elements that are greater than the pivot and those that are smaller than the pivot.
   //
@@ -50,7 +50,7 @@ export type QuickSort<
   // Notice that we split the computation into multiple steps with a condition that will always be true.
   // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
   // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
-  1: SmallerPart<X, Z> extends infer Qs // Assign result to `Qs`
+  next: SmallerPart<X, Z> extends infer Qs // Assign result to `Qs`
     ? QuickSort<Cast<Qs, Array<number>>> extends infer S // Assign result to `S`
       ? BiggerPart<X, Z> extends infer Qb // Assign result to `Qb`
         ? QuickSort<Cast<Qb, Array<number>>> extends infer B // Assign result to `B`
@@ -62,7 +62,7 @@ export type QuickSort<
       : never
     : never;
   //
-}[T extends [] ? 0 : 1];
+}[T extends [] ? 'finish' : 'next'];
 
 // Returns an array with all the values that are smaller than or equal the pivot (`E`).
 type SmallerPart<
@@ -75,14 +75,14 @@ type SmallerPart<
 > = {
   // If the input array is empty, return the accumulator array. We reverse it first
   // since we add elements into it in a reversed order.
-  0: Reverse<R>;
+  finish: Reverse<R>;
   // Then, check if the first element of the array is less than or equal to `E`. If it
   // is, insert it into the beginning of the accumulator and run the recursion again
   // on the rest of the array.
-  1: SmallerPart<E, Tail<T>, Unshift<R, Head<T>>>;
+  insert: SmallerPart<E, Tail<T>, Unshift<R, Head<T>>>;
   // Otherwise, skip this element and run the recursion again on the rest of the array.
-  2: SmallerPart<E, Tail<T>, R>;
-}[T extends [] ? 0 : Lte<Head<T>, E> extends true ? 1 : 2];
+  skip: SmallerPart<E, Tail<T>, R>;
+}[T extends [] ? 'finish' : Lte<Head<T>, E> extends true ? 'insert' : 'skip'];
 
 // Returns an array with all the values that are bigger than the pivot (`E`).
 type BiggerPart<
@@ -95,17 +95,17 @@ type BiggerPart<
 > = {
   // If the input array is empty, return the accumulator array. We reverse it first
   // since we add elements into it in a reversed order.
-  0: Reverse<R>;
+  finish: Reverse<R>;
   // Then, check if the first element of the array is greater than `E`. If it is, insert
   // it into the beginning of the accumulator and run the recursion again on the rest of
   // the array.
-  1: BiggerPart<E, Tail<T>, Unshift<R, Head<T>>>;
+  insert: BiggerPart<E, Tail<T>, Unshift<R, Head<T>>>;
   // Otherwise, skip this element and run the recursion again on the rest of the array.
-  2: BiggerPart<E, Tail<T>, R>;
+  skip: BiggerPart<E, Tail<T>, R>;
 }[T extends []
-  ? 0
+  ? 'finish'
   : IsEqual<Head<T>, E> extends true
-  ? 2
+  ? 'skip'
   : Gte<Head<T>, E> extends true
-  ? 1
-  : 2];
+  ? 'insert'
+  : 'skip'];

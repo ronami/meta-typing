@@ -89,13 +89,17 @@ type Tree1 = Branch<
 // leaves (Reminder: leaves are trees with a value and no children).
 export type Leaves<T extends Tree<any, any, any>> = {
   // If the tree is `Empty` then it has no value and no children. Return an empty array.
-  0: [];
+  finish: [];
   // Next, check if the tree is a `Branch` with both of its children `Empty`. If it is,
   // then it's a leaf. Return an array with its value.
-  1: [T extends Branch<infer V, any, any> ? V : never];
+  leaf: [T extends Branch<infer V, any, any> ? V : never];
   // Otherwise, use `infer` to match the values of the left and the right trees. Then,
   // run `Leaves` recursively on both and concatenate the resulting arrays.
-  2: T extends Branch<infer V, infer L, infer R>
+  next: T extends Branch<infer V, infer L, infer R>
     ? Concat<Leaves<L>, Leaves<R>>
     : never;
-}[T extends Empty ? 0 : T extends Branch<any, Empty, Empty> ? 1 : 2];
+}[T extends Empty
+  ? 'finish'
+  : T extends Branch<any, Empty, Empty>
+  ? 'leaf'
+  : 'next'];

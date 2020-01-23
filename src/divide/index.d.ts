@@ -34,19 +34,19 @@ export type Divide<
   // Start by checking if `A` is of type `never`. If that's the case then `A` was reduced to a number
   // bellow 0 and the result is probably a fraction. Return the accumulator minus 1 (since we went a
   // bit too far into the negative):
-  0: Dec<R>;
+  fraction: Dec<R>;
   // Next, check if the value of `A` is 0. If it is, then we reached the end of the recursion (no
   // fraction). Return the `R` as the result:
-  1: R;
+  finish: R;
   // Then, check if the divisor is 0 and return `never` as a way to signal that we can't divide by 0:
-  2: never;
+  'unable-to-divide': never;
   // Otherwise, run the recursion again by substracting `B`'s value from `A` and increasing `R`'s value by
   // 1.
   //
   // Notice that we split the computation into two steps with a condition that will always be true.
   // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
   // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
-  3: Substract<A, B> extends infer G // Assign result to `G`
+  next: Substract<A, B> extends infer G // Assign result to `G`
     ? Divide<Cast<G, number>, B, Inc<R>>
     : never;
   // For example, the calculation of Substract<6, 2> will first translate into Substract<4, 2, 1>. `A`'s
@@ -60,4 +60,10 @@ export type Divide<
   //
   // Finally, since now `A`'s value equals 0, the recursion terminates and returns the accumulator's
   // value as the result: 3.
-}[IsNever<A> extends true ? 0 : A extends 0 ? 1 : B extends 0 ? 2 : 3];
+}[IsNever<A> extends true
+  ? 'fraction'
+  : A extends 0
+  ? 'finish'
+  : B extends 0
+  ? 'unable-to-divide'
+  : 'next'];

@@ -25,7 +25,7 @@ export type Add<
   B extends number
 > = {
   // If `B`'s value is 0 then we're done, just return `A`.
-  0: A;
+  finish: A;
   // Otherwise, call `Add` recursively while increasing `A`'s value by 1 and decreasing
   // `B`'s value by 1. Eventually, `B`'s value will be 0 and the recursion will terminate.
   //
@@ -36,5 +36,5 @@ export type Add<
   //
   // Finally, now that `B`'s value is 0, the recursion terminates and returns the
   // accumulated value of `A` which is 5.
-  1: Add<Inc<A>, Dec<B>>;
-}[B extends 0 ? 0 : 1];
+  next: Add<Inc<A>, Dec<B>>;
+}[B extends 0 ? 'finish' : 'next'];

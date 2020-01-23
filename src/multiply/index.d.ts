@@ -26,10 +26,10 @@ export type Multiply<
   B extends number
 > = {
   // If any of the numbers is 0, return 0:
-  0: 0;
+  zero: 0;
   // Next, check if any of them are equal to 1 and return the other number:
-  1: A;
-  2: B;
+  'one-b': A;
+  'one-a': B;
   // If they're both not 1s or 0s, we call the recursion again, like this:
   //
   //   Add<A, Multiply<A, Dec<B>>>
@@ -50,7 +50,15 @@ export type Multiply<
   // but the compiler doesn't know that G is a number.
   // By casting it we tell the compiler that it is always going to get a number: Either the value
   // we pass is of type `number`, or that it's going to use the general `number` type.
-  3: Multiply<A, Dec<B>> extends infer G // Assign result to `G`
+  next: Multiply<A, Dec<B>> extends infer G // Assign result to `G`
     ? Add<A, Cast<G, number>>
     : never;
-}[A extends 0 ? 0 : B extends 0 ? 0 : B extends 1 ? 1 : A extends 1 ? 2 : 3];
+}[A extends 0
+  ? 'zero'
+  : B extends 0
+  ? 'zero'
+  : B extends 1
+  ? 'one-b'
+  : A extends 1
+  ? 'one-a'
+  : 'next'];

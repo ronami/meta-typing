@@ -26,10 +26,10 @@ export type MergeSort<
 > = {
   // Start by checking if the input is empty. If it is, return it. A sorted empty list
   // is an empty list.
-  0: [];
+  finish: [];
   // Then, since we're going to break the array into chunks that may have one element in them
   // check if `T` is an array with one element. If that's the case, there's no need to sort it.
-  1: T;
+  single: T;
   // Otherwise, break `T` into two parts (with `FirstHalf` and `SecondHalf`, explained bellow)
   // and run `MergeSort` recursively on both parts.
   //
@@ -44,7 +44,7 @@ export type MergeSort<
   // Notice that we split the computation into multiple steps with a condition that will always be true.
   // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
   // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
-  2: FirstHalf<T> extends infer B // Assign result to `B`
+  next: FirstHalf<T> extends infer B // Assign result to `B`
     ? MergeSort<Cast<B, Array<any>>> extends infer G // Assign result to `G`
       ? SecondHalf<T> extends infer N // Assign result to `N`
         ? MergeSort<Cast<N, Array<any>>> extends infer H // Assign result to `H`
@@ -53,7 +53,7 @@ export type MergeSort<
         : never
       : never
     : never;
-}[T extends [] ? 0 : T extends [any] ? 1 : 2];
+}[T extends [] ? 'finish' : T extends [any] ? 'single' : 'next'];
 
 // Splits an array into two parts and returns the first part. For example, FirstHalf<[1, 2, 3, 4]>
 // will return [1, 2].
@@ -80,24 +80,24 @@ type Merge<
   firstB extends number = Head<B>
 > = {
   // Start by checking if `A` is an empty array. If that's the case, return `B`.
-  0: B;
+  'empty-a': B;
   // Next, check if `B` is an empty array and return `A`.
-  1: A;
+  'empty-b': A;
   // Then, check if the first element of `A` is smaller than or equal to the first element of `B`.
-  2: {
+  otherwise: {
     // If it is, run the recursion again for the rest of `A` and insert the first element of `A` into
     // the beginning of the result.
     //
     // Notice that we split the computation into two steps with a condition that will always be true.
     // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
     // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
-    0: Merge<Tail<A>, B> extends infer G // Assign result to `G`
+    'less-than': Merge<Tail<A>, B> extends infer G // Assign result to `G`
       ? Unshift<Cast<G, Array<any>>, firstA>
       : never;
     // Otherwise, run the recursion again for the rest of `B` and insert the first element of `B`
     // into the beginning of the result.
-    1: Merge<Tail<B>, A> extends infer G // Assign result to `G`
+    'greater-than': Merge<Tail<B>, A> extends infer G // Assign result to `G`
       ? Unshift<Cast<G, Array<any>>, firstB>
       : never;
-  }[Lte<firstA, firstB> extends true ? 0 : 1];
-}[A extends [] ? 0 : B extends [] ? 1 : 2];
+  }[Lte<firstA, firstB> extends true ? 'less-than' : 'greater-than'];
+}[A extends [] ? 'empty-a' : B extends [] ? 'empty-b' : 'otherwise'];

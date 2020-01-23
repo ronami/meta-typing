@@ -36,7 +36,7 @@ export type Unshift<
 // of going around it. Please note that it's not something TypeScript officially supports:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type InEvery<T extends Array<Array<any>>, E> = {
-  0: true;
-  1: false;
-  2: InEvery<Tail<T>, E>;
-}[T extends [] ? 0 : Includes<Head<T>, E> extends true ? 2 : 1];
+  true: true;
+  false: false;
+  next: InEvery<Tail<T>, E>;
+}[T extends [] ? 'true' : Includes<Head<T>, E> extends true ? 'next' : 'false'];

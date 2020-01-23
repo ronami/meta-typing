@@ -32,7 +32,7 @@ export type Concat<
 //
 type Concatenation<T1 extends Array<any>, T2 extends Array<any>> = {
   //
-  1: Reverse<T1>;
+  finish: Reverse<T1>;
   //
-  0: Concatenation<Unshift<T1, Head<T2>>, Tail<T2>>;
-}[T2 extends [] ? 1 : 0];
+  next: Concatenation<Unshift<T1, Head<T2>>, Tail<T2>>;
+}[T2 extends [] ? 'finish' : 'next'];

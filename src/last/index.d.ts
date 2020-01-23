@@ -24,11 +24,11 @@ export type Last<
   A extends Array<any>
 > = {
   // If the array is empty then there is no last element and we simply return `undefined`:
-  0: undefined;
+  empty: undefined;
   // Next, check if the array has only 1 element in it. If that's the case, that element is
   // the last element, simply return it as the result:
-  1: Head<A>;
+  finish: Head<A>;
   // Otherwise, then the next element isn't the last and we run the recursion again with the
   // rest of the array:
-  2: Last<Tail<A>>;
-}[A extends [] ? 0 : A extends [any] ? 1 : 2];
+  next: Last<Tail<A>>;
+}[A extends [] ? 'empty' : A extends [any] ? 'finish' : 'next'];

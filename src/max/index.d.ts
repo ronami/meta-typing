@@ -27,18 +27,18 @@ export type Max<
   R extends number = Head<T>
 > = {
   // Check if the input array is empty and return `never` if it is:
-  0: never;
+  empty: never;
   // Otherwise, check if the input array has only one element. If that's
   // the case, return `R` since it's already that element:
-  1: R;
+  finish: R;
   // Then, check if the
-  2: Max<Tail<T>, R>;
+  'next-bigger': Max<Tail<T>, R>;
   //
-  3: Max<Tail<T>>;
+  next: Max<Tail<T>>;
 }[T extends []
-  ? 0
+  ? 'empty'
   : T extends [number]
-  ? 1
+  ? 'finish'
   : Gte<R, Head<Tail<T>>> extends true
-  ? 2
-  : 3];
+  ? 'next-bigger'
+  : 'next'];

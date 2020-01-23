@@ -34,11 +34,11 @@ export type Lte<
 > = {
   // If `A` is `never` then it's smaller (or equal, since we didn't check `B` yet), return
   // `true`:
-  0: false;
+  greater: false;
   // Otherwise, if `B` is `never`, return false since it's smaller than `A`:
-  1: true;
+  smaller: true;
   // None of them are `never`? Run again by decreasing both by 1:
-  2: Lte<Inc<A>, Inc<B>>;
+  next: Lte<Inc<A>, Inc<B>>;
   // For example, calling Lte<9, 7> first checks if any of the values are `never`. Since that's
   // false, the recursion increases both by 1 and runs again with: Lte<10, 8>.
   //
@@ -48,4 +48,8 @@ export type Lte<
   // Finally, after 10 was increased by 1 and went out of calculation range, it now has the value
   // of `never`. Because it reached the `never` value first, the recursion terminates and returns
   // `false`.
-}[IsNever<A> extends true ? (IsNever<B> extends true ? 1 : 0) : 2];
+}[IsNever<A> extends true
+  ? IsNever<B> extends true
+    ? 'smaller'
+    : 'greater'
+  : 'next'];

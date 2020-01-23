@@ -32,10 +32,10 @@ export type Take<
   // If the input array is empty end the recursion and return the internal
   // accumulator. We reverse it first since we add elements into it in a reversed
   // order:
-  0: Reverse<R>;
+  finish: Reverse<R>;
   // Otherwise, run the recursion again with the reset of the array, decrease
   // the value of `N` by 1, and push the first element into the accumulator:
-  1: Take<Tail<A>, Dec<N>, Unshift<R, Head<A>>>;
+  next: Take<Tail<A>, Dec<N>, Unshift<R, Head<A>>>;
   // For example, evaluating Take<[1, 2, 3, 4, 5, 6], 2> will first translate into:
   // Take<[2, 3, 4, 5, 6], 1, [1]>. You can see that since the array wasn't empty and
   // `N` wasn't 0, the recursion ran again on the rest of the array, inserted the first
@@ -48,4 +48,4 @@ export type Take<
   // Finally, now that `N` is 0, the recursion terminates and returns the reversed value
   // of the accunulator which results with [1, 2]. Two elements were taken from the
   // beginning of the array.
-}[A extends [] ? 0 : N extends 0 ? 0 : 1];
+}[A extends [] ? 'finish' : N extends 0 ? 'finish' : 'next'];

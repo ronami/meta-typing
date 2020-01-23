@@ -27,18 +27,18 @@ export type Min<
   R extends number = Head<T>
 > = {
   // Check if the input array is empty and return `never` if it is:
-  0: never;
+  empty: never;
   // Otherwise, check if the input array has only one element. If that's
   // the case, return `R` since it's already that element:
-  1: R;
+  finish: R;
   // Then, check if the
-  2: Min<Tail<T>, R>;
+  'next-smaller': Min<Tail<T>, R>;
   //
-  3: Min<Tail<T>>;
+  next: Min<Tail<T>>;
 }[T extends []
-  ? 0
+  ? 'empty'
   : T extends [number]
-  ? 1
+  ? 'finish'
   : Lte<R, Head<Tail<T>>> extends true
-  ? 2
-  : 3];
+  ? 'next-smaller'
+  : 'next'];

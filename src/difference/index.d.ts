@@ -28,10 +28,10 @@ export type Difference<
   //
   // If it's not empty, check if its first element is an empty array. If that's the
   // case, also return an empty array.
-  0: [];
+  finish: [];
   // Otherwise, run the `Diff` with the first array, and all other arrays.
-  1: Diff<Head<T>, Tail<T>>;
-}[T extends [] ? 0 : Head<T> extends [] ? 0 : 1];
+  next: Diff<Head<T>, Tail<T>>;
+}[T extends [] ? 'finish' : Head<T> extends [] ? 'finish' : 'next'];
 
 // A helper function that takes the first array (`T`) and all other arrays (`G`).
 // It iterates over `T` and inserts every value of `T` into `R`, as long as it's
@@ -46,15 +46,15 @@ type Diff<
 > = {
   // If the input array is empty, return the accumulator array. We reverse it first
   // since we add elements into it in a reversed order.
-  0: Reverse<R>;
+  finish: Reverse<R>;
   // If the first element of `T` isn't included in any of the arrays in `G`, run the
   // recursion again with the rest of `T`, and insert that element into the accumulator
   // array.
-  1: Diff<Tail<T>, G, Unshift<R, Head<T>>>;
+  insert: Diff<Tail<T>, G, Unshift<R, Head<T>>>;
   // Otherwise, if the first element of `T` is included in any of the arrays in `G`,
   // skip it by running the recursion again on the rest of `T`, without changing the
   // accumulator at all.
-  2: Diff<Tail<T>, G, R>;
+  skip: Diff<Tail<T>, G, R>;
   // For example, calling Difference<[[1, 2, 3], [2, 3, 4]]> will first translate into:
   // Diff<[1, 2, 3], [[2, 3, 4]], []>. Notice that `Diff` was called with the first array
   // and all other arrays as its 2nd argument, along with an empty accumulator.
@@ -73,4 +73,8 @@ type Diff<
   //
   // Finally, since the input array is empty, the reversed accumulator is returned which
   // results with: [1].
-}[T extends [] ? 0 : InEvery<G, Head<T>> extends false ? 1 : 2];
+}[T extends []
+  ? 'finish'
+  : InEvery<G, Head<T>> extends false
+  ? 'insert'
+  : 'skip'];

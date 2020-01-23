@@ -31,7 +31,7 @@ export type Chunk<
 > = {
   // If the input array is empty, return the accumulator array. We reverse it first
   // since we add elements into it in a reversed order.
-  0: Reverse<R>;
+  finish: Reverse<R>;
   // Otherwise, run recursively by inserting the `S` first elements from the input array (`T`)
   // into the accumulator array, and dropping the same number of elements from the beginning
   // of the input array (`T`).
@@ -41,7 +41,7 @@ export type Chunk<
   // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
   //
   // Normally, the computation bellow is the same as `Chunk<Drop<T, S>, S, Drop<T, S>>`.
-  1: Unshift<R, Take<T, S>> extends infer G // Assign result to `G`
+  next: Unshift<R, Take<T, S>> extends infer G // Assign result to `G`
     ? Drop<T, S> extends infer Z // Assign result to `Z`
       ? Chunk<Cast<Z, Array<any>>, S, Cast<G, Array<any>>>
       : never
@@ -57,4 +57,4 @@ export type Chunk<
   //
   // Finally, since the input array is empty, the reverse accumulator is return which results with:
   // [['a', 'b'], ['c', 'd']].
-}[T extends [] ? 0 : 1];
+}[T extends [] ? 'finish' : 'next'];

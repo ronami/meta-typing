@@ -44,22 +44,22 @@ type GetAtIndex<
   R extends Array<any> = []
 > = {
   //
-  0: Reverse<R>;
+  finish: Reverse<R>;
   //
-  1: Unshift<R, Head<B>[C]> extends infer G
+  next: Unshift<R, Head<B>[C]> extends infer G
     ? GetAtIndex<Tail<B>, C, Cast<G, Array<any>>>
     : never;
-}[B extends [] ? 0 : 1];
+}[B extends [] ? 'finish' : 'next'];
 
 //
 type AllEqual<T extends Array<any>, E> = {
   //
-  0: true;
+  finish: true;
   //
-  1: AllEqual<Tail<T>, E>;
+  next: AllEqual<Tail<T>, E>;
   //
-  2: false;
-}[T extends [] ? 0 : IsEqual<Head<T>, E> extends true ? 1 : 2];
+  bail: false;
+}[T extends [] ? 'finish' : IsEqual<Head<T>, E> extends true ? 'next' : 'bail'];
 
 //
 type Zipper<
@@ -73,9 +73,13 @@ type Zipper<
   F extends Array<any>
 > = {
   //
-  0: [];
+  empty: [];
   //
-  1: Reverse<R>;
+  finish: Reverse<R>;
   //
-  2: Zip<T, Inc<N>, Unshift<R, F>>;
-}[T extends [] ? 0 : AllEqual<F, undefined> extends true ? 1 : 2];
+  next: Zip<T, Inc<N>, Unshift<R, F>>;
+}[T extends []
+  ? 'empty'
+  : AllEqual<F, undefined> extends true
+  ? 'finish'
+  : 'next'];

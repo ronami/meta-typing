@@ -27,10 +27,10 @@ export type Sum<
 > = {
   // Start by checking if the array is empty. If it is then we reached the end of the
   // recursion and we return the accumulated result:
-  0: R;
+  finish: R;
   // Otherwise, we run the recursion again with the rest of the array, and add the first
   // element of the array to our accumulated result (R):
-  1: Add<R, Head<A>> extends infer G // Assign result to `G`
+  next: Add<R, Head<A>> extends infer G // Assign result to `G`
     ? Sum<Tail<A>, Cast<G, number>>
     : never;
   // This may look confusing but instead of computing:
@@ -50,4 +50,4 @@ export type Sum<
   //
   // By casting it we tell the compiler that it is always going to get a number: Either the value
   // we pass is of type `number`, or that it's going to use the general `number` type.
-}[A extends [] ? 0 : 1];
+}[A extends [] ? 'finish' : 'next'];

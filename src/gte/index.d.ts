@@ -34,11 +34,11 @@ export type Gte<
 > = {
   // If `A` is `never` then it's bigger (or equal, since we didn't check `B` yet), return
   // `true`:
-  0: true;
+  greater: true;
   // Otherwise, if `B` is `never`, return false since it's bigger than `A`:
-  1: false;
+  smaller: false;
   // None of them are `never`? Run again by increasing both by 1:
-  2: Gte<Inc<A>, Inc<B>>;
+  next: Gte<Inc<A>, Inc<B>>;
   // For example, calling Gte<9, 7> first checks if any of the values are `never`. Since that's
   // false, the recursion increases both by 1 and runs again with: Gte<10, 8>.
   //
@@ -48,4 +48,8 @@ export type Gte<
   // Finally, after 10 was increased by 1 and went out of calculation range, it now has the value
   // of `never`. Because it reached the `never` value first, the recursion terminates and returns
   // `true`.
-}[IsNever<A> extends true ? 0 : IsNever<B> extends true ? 1 : 2];
+}[IsNever<A> extends true
+  ? 'greater'
+  : IsNever<B> extends true
+  ? 'smaller'
+  : 'next'];

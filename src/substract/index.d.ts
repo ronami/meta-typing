@@ -25,7 +25,7 @@ export type Substract<
   B extends number
 > = {
   // If `B`'s value is 0 then we're done, just return `A`.
-  0: A;
+  finish: A;
   // Otherwise, call `Substract` recursively while decreasing `A`'s value by 1 and also
   // decreasing `B`'s value by 1. Eventually `B` will be 0 and the recursion will terminate.
   //
@@ -36,5 +36,5 @@ export type Substract<
   //
   // Finally, now that `B`'s value is 0, the recursion terminates and returns the
   // value of `A` which is 1.
-  1: Substract<Dec<A>, Dec<B>>;
-}[B extends 0 ? 0 : 1];
+  next: Substract<Dec<A>, Dec<B>>;
+}[B extends 0 ? 'finish' : 'next'];

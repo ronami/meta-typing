@@ -28,10 +28,10 @@ export type Reverse<
 > = {
   // Start by checking if the input array is empty. If it is, return the accumulator
   // as the result:
-  0: R;
+  finish: R;
   // Otherwise, run the recursion again on the rest of the array, and unshift (add to the
   // beginning) the first value into the accumulator array:
-  1: Reverse<Tail<T>, Unshift<R, Head<T>>>;
+  next: Reverse<Tail<T>, Unshift<R, Head<T>>>;
   // For example,running Reverse<[1, 2, 3]> will first translate into: Reverse<[2, 3], [1]>.
   // Since the array wasn't empty, the recursion runs again on the array, just without its
   // first element, and that first element was inserted into the accumulator.
@@ -45,4 +45,4 @@ export type Reverse<
   // runs again by taking the first value and inserting it to the beginning of R.
   // Finally, now that the array is empty, the accumulator is returned with [3, 2, 1] which
   // is the reversed result of the initial input of [1, 2, 3].
-}[T extends [] ? 0 : 1];
+}[T extends [] ? 'finish' : 'next'];
