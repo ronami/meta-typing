@@ -61,7 +61,6 @@ export type QuickSort<
         : never
       : never
     : never;
-  //
 }[T extends [] ? 'finish' : 'next'];
 
 // Returns an array with all the values that are smaller than or equal the pivot (`E`).
