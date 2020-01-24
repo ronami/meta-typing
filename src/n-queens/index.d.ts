@@ -149,7 +149,7 @@ type IsSafe<
   X extends number,
   // The board, possibly with other queens already placed on, to check against.
   T extends Board,
-  // An internal counter to track
+  // An internal counter to track the current row being checked.
   N extends number = 1,
   // An internal variable that points to the first queen in the board.
   C extends number = Head<T>
