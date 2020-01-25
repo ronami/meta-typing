@@ -12,7 +12,7 @@ import {
   Unshift,
   Cast,
   Add,
-  Substract,
+  Subtract,
   Inc,
 } from '..';
 
@@ -149,17 +149,30 @@ type IsSafe<
   X extends number,
   // The board, possibly with other queens already placed on, to check against.
   T extends Board,
-  // An internal counter to track the current row being checked.
+  // An internal counter to track the how many times the recursion has run. It's used to determine
+  // if another queen threatens the queen we want to place through one of the diagonals.
   N extends number = 1,
   // An internal variable that points to the first queen in the board.
   C extends number = Head<T>
 > = {
-  //
+  // If we finished iterating over the board and didn't find any queen that threatens our queen
+  // then return `true`.
   finish: true;
+  // Otherwise, we first check if both queens are on the same column by checking if their values are
+  // the same. If they do, we return `false`.
   //
+  // We don't need to check if both queens are on the same row because it's not possible with how
+  // the board is modeled (See https://github.com/ronami/meta-typing/blob/master/src/n-queens/index.d.ts#L19).
+  //
+  // Finally, we check the left and right diagonals. To do that we keep track of how many times the
+  // recursion has run with the variable `N`. We add or subtract `N` (depending if we check the left
+  // or the right diagonal) from the value of the queen and compare it to the value of `X`. If it's
+  // the same, then the two queens threaten each other and we return false.
+  //
+  // Otherwise, we keep checking until there are no more queens to check.
   next: IsEqual<X, C> extends false
     ? IsEqual<X, Add<C, N>> extends false
-      ? IsEqual<X, Substract<C, N>> extends false
+      ? IsEqual<X, Subtract<C, N>> extends false
         ? IsSafe<X, Tail<T>, Inc<N>> extends true
           ? true
           : false

@@ -1,4 +1,4 @@
-import { Substract, Dec, Inc, Cast, IsNever } from '..';
+import { Subtract, Dec, Inc, Cast, IsNever } from '..';
 
 // Divide two numbers: https://lodash.com/docs/4.17.15#divide.
 //
@@ -40,22 +40,22 @@ export type Divide<
   finish: R;
   // Then, check if the divisor is 0 and return `never` as a way to signal that we can't divide by 0:
   'unable-to-divide': never;
-  // Otherwise, run the recursion again by substracting `B`'s value from `A` and increasing `R`'s value by
+  // Otherwise, run the recursion again by subtracting `B`'s value from `A` and increasing `R`'s value by
   // 1.
   //
   // Notice that we split the computation into two steps with a condition that will always be true.
   // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
   // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
-  next: Substract<A, B> extends infer G // Assign result to `G`
+  next: Subtract<A, B> extends infer G // Assign result to `G`
     ? Divide<Cast<G, number>, B, Inc<R>>
     : never;
-  // For example, the calculation of Substract<6, 2> will first translate into Substract<4, 2, 1>. `A`'s
+  // For example, the calculation of Subtract<6, 2> will first translate into Subtract<4, 2, 1>. `A`'s
   // value was reduced by 2 (`B`'s value) and the accumulator was increased by 1.
   //
-  // Then, since `A`'s value isn't 0 or `never`, we run again with: Substract<2, 2, 2>. Again, `A`'s
+  // Then, since `A`'s value isn't 0 or `never`, we run again with: Subtract<2, 2, 2>. Again, `A`'s
   // value was reduced by `B`'s value and the accumulator was increased by 1 yet again.
   //
-  // Next, the calculation translates into Substract<0, 2, 3>. `A`'s value was reduced again and the
+  // Next, the calculation translates into Subtract<0, 2, 3>. `A`'s value was reduced again and the
   // accumulator has increased by 1 again.
   //
   // Finally, since now `A`'s value equals 0, the recursion terminates and returns the accumulator's

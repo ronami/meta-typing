@@ -31,7 +31,7 @@ export * from './range';
 export * from './reverse';
 export * from './size';
 export * from './slice';
-export * from './substract';
+export * from './subtract';
 export * from './sum';
 export * from './tail';
 export * from './take';

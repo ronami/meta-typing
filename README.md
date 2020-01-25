@@ -36,7 +36,7 @@ $ yarn test
 
   - [Basic arithmetic](src/utils/math.d.ts) - add one and decrease by one.
   - [Add](src/add/index.d.ts) - adds two numbers.
-  - [Substract](src/substract/index.d.ts) - substracts two numbers.
+  - [Subtract](src/subtract/index.d.ts) - subtracts two numbers.
   - [Multiply](src/multiply/index.d.ts) - multiplies two numbers.
   - [Divide](src/divide/index.d.ts) - divides two numbers.
   - [Greater than or equal](src/gte/index.d.ts) - checks if a value is greater than or equal to another value.
