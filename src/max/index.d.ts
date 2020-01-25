@@ -4,6 +4,14 @@ import { Head, Gte, Tail } from '..';
 //
 //   type S = Max<[1, 2, 3]>; // 3
 //
+export type Max<
+  // The array to iterate over.
+  T extends Array<number>
+> =
+  // Check if the array is empty, otherwise run the helper function `Maximum` with the first as
+  // the current highest element and the rest of the array.
+  T extends [] ? never : Maximum<Tail<T>, Head<T>>;
+
 // Notice that the function is implemented with an object and a ternary check that accesses
 // one of its properties:
 //
@@ -19,26 +27,20 @@ import { Head, Gte, Tail } from '..';
 // TypScript's type system doesn't support recursive types and the above example is a way
 // of going around it. Please note that it's not something TypeScript officially supports:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
-export type Max<
+type Maximum<
   // The array to iterate over.
   T extends Array<number>,
-  // An internal variable to track the currently maximum value. In the first
-  // call this is initialized to the first element of the array.
-  R extends number = Head<T>
+  // An internal variable to track the current maximum value.
+  R extends number,
+  // A convenience variable to track the first element of the array.
+  C extends number = Head<T>
 > = {
-  // Check if the input array is empty and return `never` if it is:
-  empty: never;
-  // Otherwise, check if the input array has only one element. If that's
-  // the case, return `R` since it's already that element:
+  // Start by checking if we iterated over the entire array. If that's the case, return the maximum
+  // value we found.
   finish: R;
-  // Then, check if the
-  'next-bigger': Max<Tail<T>, R>;
-  //
-  next: Max<Tail<T>>;
-}[T extends []
-  ? 'empty'
-  : T extends [number]
-  ? 'finish'
-  : Gte<R, Head<Tail<T>>> extends true
-  ? 'next-bigger'
-  : 'next'];
+  // Next, check if the next element of the array is greater than the current maximum element (R).
+  // If it is, replace it with the first element of the array.
+  replace: Maximum<Tail<T>, C>;
+  // Otherwise, skip it, keep `R` as the maximum element and run the recursion again.
+  next: Maximum<Tail<T>, R>;
+}[T extends [] ? 'finish' : Gte<C, R> extends true ? 'replace' : 'next'];

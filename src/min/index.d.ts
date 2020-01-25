@@ -4,6 +4,14 @@ import { Head, Lte, Tail } from '..';
 //
 //   type S = Min<[1, 2, 3]>; // 1
 //
+export type Min<
+  // The array to iterate over.
+  T extends Array<number>
+> =
+  // Check if the array is empty, otherwise run the helper function `Minimum` with the first as
+  // the current lowest element and the rest of the array.
+  T extends [] ? never : Minimum<Tail<T>, Head<T>>;
+
 // Notice that the function is implemented with an object and a ternary check that accesses
 // one of its properties:
 //
@@ -19,26 +27,20 @@ import { Head, Lte, Tail } from '..';
 // TypScript's type system doesn't support recursive types and the above example is a way
 // of going around it. Please note that it's not something TypeScript officially supports:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
-export type Min<
+type Minimum<
   // The array to iterate over.
   T extends Array<number>,
-  // An internal variable to track the currently minimum value. In the first
-  // call this is initialized to the first element of the array.
-  R extends number = Head<T>
+  // An internal variable to track the current minimum value.
+  R extends number,
+  // A convenience variable to track the first element of the array.
+  C extends number = Head<T>
 > = {
-  // Check if the input array is empty and return `never` if it is:
-  empty: never;
-  // Otherwise, check if the input array has only one element. If that's
-  // the case, return `R` since it's already that element:
+  // Start by checking if we iterated over the entire array. If that's the case, return the minimum
+  // value we found.
   finish: R;
-  // Then, check if the
-  'next-smaller': Min<Tail<T>, R>;
-  //
-  next: Min<Tail<T>>;
-}[T extends []
-  ? 'empty'
-  : T extends [number]
-  ? 'finish'
-  : Lte<R, Head<Tail<T>>> extends true
-  ? 'next-smaller'
-  : 'next'];
+  // Next, check if the next element of the array is less than the current minimum element (R).
+  // If it is, replace it with the first element of the array.
+  replace: Minimum<Tail<T>, C>;
+  // Otherwise, skip it, keep `R` as the minimum element and run the recursion again.
+  next: Minimum<Tail<T>, R>;
+}[T extends [] ? 'finish' : Lte<C, R> extends true ? 'replace' : 'next'];
