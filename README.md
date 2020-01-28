@@ -86,6 +86,7 @@ $ yarn test
   - [N-Queens](src/n-queens/index.d.ts) - the problem of placing N chess queens on an N×N chessboard so that no two queens threaten each other.
   - [Towers of Hanoi](src/hanoi/index.d.ts) - a mathematical game or puzzle that consists of three rods and a number of disks of different sizes.
   - [Binary trees](src/binary-trees/index.d.ts) - a tree data structure in which each node has at most two children.
+  - [Square Matrix Rotation](src/rotate-matrix/index.d.ts) - you are given an N×N 2D matrix (representing an image). Rotate the matrix by 90 degrees (clockwise and counter-clockwise).
 
 ### Additional links
 
