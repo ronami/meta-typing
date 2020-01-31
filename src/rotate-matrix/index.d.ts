@@ -46,7 +46,12 @@ type ReverseArray<
   // If the input array is empty, return the accumulator array. We reverse it first
   // since we add elements into it in a reversed order.
   finish: Reverse<R>;
+  // Otherwise, reverse the first element of the input array and insert it into the beginning of the
+  // accumulator (R). Then, run the recursion again with the new R and the rest of the array.
   //
+  // Notice that we split the computation into three steps, with conditions that will always be true.
+  // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
+  // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
   next: Unshift<R, Reverse<Head<T>>> extends infer G
     ? ReverseArray<Tail<T>, Cast<G, Array<any>>>
     : never;
