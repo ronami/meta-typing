@@ -1,5 +1,5 @@
 export * from './add';
-export * from './binary-trees';
+export * from './binaryTrees';
 export * from './chunk';
 export * from './clamp';
 export * from './compact';
@@ -26,7 +26,7 @@ export * from './min';
 export * from './multiply';
 export * from './nth';
 export * from './pull';
-export * from './n-queens';
+export * from './nQueens';
 export * from './quickSort';
 export * from './range';
 export * from './reverse';

@@ -8,7 +8,7 @@
 
 The goal of this project is to explore TypeScript's type system in an unconventional way. I used recursion a lot and had to find creative (and sometimes not officially supported) solutions to overcome [some limitations](https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373) of the type system. Each function and algorithm has its own implementation with comments describing in detail what's going on.
 
-Just to see how far I can push it, I tried implementing the classical [Eight queens puzzle](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/n-queens). It's crazy that it actually works, [check out how it's implemented](src/n-queens/index.d.ts).
+Just to see how far I can push it, I tried implementing the classical [Eight queens puzzle](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/n-queens). It's crazy that it actually works, [check out how it's implemented](src/nQueens/index.d.ts).
 
 *☝ Please note that this project is meant to be used for research and learning purposes and not for practical use.*
 
@@ -84,10 +84,10 @@ $ yarn test
 
 - **Puzzles**
 
-  - [N-Queens](src/n-queens/index.d.ts) - the problem of placing N chess queens on an N×N chessboard so that no two queens threaten each other.
+  - [N-Queens](src/nQueens/index.d.ts) - the problem of placing N chess queens on an N×N chessboard so that no two queens threaten each other.
   - [Towers of Hanoi](src/hanoi/index.d.ts) - a mathematical game or puzzle that consists of three rods and a number of disks of different sizes.
-  - [Binary trees](src/binary-trees/index.d.ts) - a tree data structure in which each node has at most two children.
-  - [Square Matrix Rotation](src/rotate-matrix/index.d.ts) - you are given an N×N 2D matrix (representing an image). Rotate the matrix by 90 degrees (clockwise and counter-clockwise).
+  - [Binary trees](src/binaryTrees/index.d.ts) - a tree data structure in which each node has at most two children.
+  - [Square Matrix Rotation](src/rotateMatrix/index.d.ts) - you are given an N×N 2D matrix (representing an image). Rotate the matrix by 90 degrees (clockwise and counter-clockwise).
 
 ### Additional links
 
