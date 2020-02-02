@@ -75,6 +75,7 @@ $ yarn test
 
   - [Quick-sort](src/quickSort/index.d.ts) - an efficient sorting algorithm.
   - [Merge-sort](src/mergeSort/index.d.ts) - another efficient sorting algorithm.
+  - [Insertion-sort](src/insertionSort/index.d.ts) - a simple sorting algorithm that builds the final sorted array (or list) one item at a time.
 
 - **Utility**
 

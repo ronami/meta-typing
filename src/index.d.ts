@@ -15,6 +15,7 @@ export * from './includes';
 export * from './indexOf';
 export * from './initial';
 export * from './inRange';
+export * from './insertionSort';
 export * from './intersection';
 export * from './isEqual';
 export * from './last';
