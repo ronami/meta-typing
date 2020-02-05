@@ -19,18 +19,22 @@ import { Dec, Concat, Unshift, Cast } from '..';
 // of going around it. Please note that it's not something TypeScript officially supports:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Hanoi<
-  //
+  // The number of discs to use.
   N extends number,
-  //
-  A,
-  //
-  B,
-  //
-  C
+  // The first rod.
+  A = 'a',
+  // The second rod.
+  B = 'b',
+  // The third rod.
+  C = 'c'
 > = {
   //
   finish: [];
   //
+  //
+  // Notice that we split the computation into three steps, with conditions that will always be true.
+  // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
+  // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
   next: Hanoi<Dec<N>, C, B, A> extends infer H
     ? Unshift<Cast<H, Array<any>>, [A, B]> extends infer G
       ? Hanoi<Dec<N>, A, C, B> extends infer F
