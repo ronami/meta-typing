@@ -15,20 +15,7 @@ import {
 //
 // type S = QuickSort<[6, 9, 7, 1, 0, 4, 3]>; // [0, 1, 3, 4, 6, 7, 9]
 //
-// Notice that the function is implemented with an object and a ternary check that accesses
-// one of its properties:
-//
-// {
-//   0: A;
-//   1: B;
-// }[T extends H ? 0 : 1]
-//
-// This is the same as writing: `T extends H ? A : B`. If the condition is true then
-// `A` is returned because it's referenced by the `0` key. Otherwise it's `B` that's returned
-// since it's referenced by the `1` key.
-//
-// TypScript's type system doesn't support recursive types and the above example is a way
-// of going around it. Please note that it's not something TypeScript officially supports:
+// This type uses recursive type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type QuickSort<
   // The input array.
@@ -47,9 +34,8 @@ export type QuickSort<
   // Then, recursively sort each of these sub lists and finally concatenate them with the
   // pivot in the middle.
   //
-  // Notice that we split the computation into multiple steps with a condition that will always be true.
-  // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
-  // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
+  // Computation is split into multiple steps with `infer`, see more:
+  // https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17.
   next: SmallerPart<X, Z> extends infer Qs // Assign result to `Qs`
     ? QuickSort<Cast<Qs, Array<number>>> extends infer S // Assign result to `S`
       ? BiggerPart<X, Z> extends infer Qb // Assign result to `Qb`

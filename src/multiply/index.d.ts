@@ -4,20 +4,7 @@ import { Add, Dec, Cast } from '..';
 //
 //   type S = Multiply<2, 3>; // 6
 //
-// Notice that the function is implemented with an object and a ternary check that accesses
-// one of its properties:
-//
-// {
-//   0: A;
-//   1: B;
-// }[T extends H ? 0 : 1]
-//
-// This is the same as writing: `T extends H ? A : B`. If the condition is true then
-// `A` is returned because it's referenced by the `0` key. Otherwise it's `B` that's returned
-// since it's referenced by the `1` key.
-//
-// TypScript's type system doesn't support recursive types and the above example is a way
-// of going around it. Please note that it's not something TypeScript officially supports:
+// This type uses recursive type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Multiply<
   // The first number in a multiplication.
@@ -38,18 +25,8 @@ export type Multiply<
   // again in which we decrease B's value by 1. This means that we call Add<A, A>
   // B times.
   //
-  // We split the computation into two steps, with a condition that will always be true.
-  // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
-  // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
-  //
-  // Notice that after we assign the first computation of:
-  //
-  //   Multiply<A, Dec<B>>
-  //
-  // to the value of G, we also pass it to a call to Cast. Normally we don't have to do that
-  // but the compiler doesn't know that G is a number.
-  // By casting it we tell the compiler that it is always going to get a number: Either the value
-  // we pass is of type `number`, or that it's going to use the general `number` type.
+  // Computation is split into multiple steps with `infer`, see more:
+  // https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17.
   next: Multiply<A, Dec<B>> extends infer G // Assign result to `G`
     ? Add<A, Cast<G, number>>
     : never;

@@ -32,20 +32,7 @@ type Board = Array<number>;
 
 // Place N chess queens on an N×N chessboard so that no two queens threaten each other.
 //
-// Notice that the function is implemented with an object and a ternary check that accesses
-// one of its properties:
-//
-// {
-//   0: A;
-//   1: B;
-// }[T extends H ? 0 : 1]
-//
-// This is the same as writing: `T extends H ? A : B`. If the condition is true then
-// `A` is returned because it's referenced by the `0` key. Otherwise it's `B` that's returned
-// since it's referenced by the `1` key.
-//
-// TypScript's type system doesn't support recursive types and the above example is a way
-// of going around it. Please note that it's not something TypeScript officially supports:
+// This type uses recursive type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type nQueens<
   // The size of the board and the number of queens to place.
@@ -63,15 +50,14 @@ export type nQueens<
   // Otherwise, run `Step` and pass its resulting boards to another recursive call to
   // `Queens`.
   //
-  // Notice that we split the computation into two steps with a condition that will always be true.
-  // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
-  // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
+  // Computation is split into multiple steps with `infer`, see more:
+  // https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17.
   next: Step<N, B> extends infer G // Asign result to `G`
     ? nQueens<N, Cast<G, Array<any>>, Inc<C>>
     : never;
 }[IsEqual<N, C> extends true ? 'finish' : 'next'];
 
-// Iterate over the array of boards and tries to call `Develop` on every one. `Develop` will try
+// Iterates over the array of boards and tries to call `Develop` on every one. `Develop` will try
 // to place a queen in the next row in every one of the boards.
 type Step<
   // The size of the board and the number of queens to place.
@@ -86,9 +72,8 @@ type Step<
   // Otherwise, run `Develop` over the first board, concatenate its resulting boards
   // into the accumulator, then run `Step` again for the rest of the boards.
   //
-  // Notice that we split the computation into multiple steps with a condition that will always be true.
-  // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
-  // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
+  // Computation is split into multiple steps with `infer`, see more:
+  // https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17.
   next: Develop<N, Head<B>> extends infer G // Assign result to `G`
     ? Concat<R, Cast<G, Array<any>>> extends infer H // Assign result to `H`
       ? Step<N, Tail<B>, Cast<H, Array<any>>>

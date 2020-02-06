@@ -22,20 +22,7 @@ export type RotateCW<
 
 // Helper function that takes an array of arrays and reverses each of the inner arrays.
 //
-// Notice that the function is implemented with an object and a ternary check that accesses
-// one of its properties:
-//
-// {
-//   0: A;
-//   1: B;
-// }[T extends H ? 0 : 1]
-//
-// This is the same as writing: `T extends H ? A : B`. If the condition is true then
-// `A` is returned because it's referenced by the `0` key. Otherwise it's `B` that's returned
-// since it's referenced by the `1` key.
-//
-// TypScript's type system doesn't support recursive types and the above example is a way
-// of going around it. Please note that it's not something TypeScript officially supports:
+// This type uses recursive type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 type ReverseArray<
   // The input array.
@@ -49,9 +36,8 @@ type ReverseArray<
   // Otherwise, reverse the first element of the input array and insert it into the beginning of the
   // accumulator (R). Then, run the recursion again with the new R and the rest of the array.
   //
-  // Notice that we split the computation into three steps, with conditions that will always be true.
-  // This is done to trick the compiler and avoid errors of "Type instantiation is excessively
-  // deep..." from the compiler (See more: https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17).
+  // Computation is split into multiple steps with `infer`, see more:
+  // https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17.
   next: Unshift<R, Reverse<Head<T>>> extends infer G
     ? ReverseArray<Tail<T>, Cast<G, Array<any>>>
     : never;
