@@ -20,7 +20,7 @@ export type Unshift<
   // which is returned eventually.
   ((h: E, ...t: T) => void) extends (...t: infer R) => void ? R : never;
 
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type InEvery<T extends Array<Array<any>>, E> = {
   true: true;

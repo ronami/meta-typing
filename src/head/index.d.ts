@@ -5,5 +5,5 @@
 // If `T` is of type array and has at least one element, return it. Otherwise,
 // return `never`:
 export type Head<T extends Array<any>> =
-  // We specifically check if it extends an array with at least one item:
+  // Check if it extends an array with at least one item:
   T extends [any, ...Array<any>] ? T['0'] : never;

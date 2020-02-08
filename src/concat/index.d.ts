@@ -5,8 +5,6 @@ import { Head, Tail, Unshift, Reverse, Cast } from '..';
 //
 //   type S = Concat<[1, 2, 3], [4, 5, 6]>; // [1, 2, 3, 4, 5, 6]
 //
-// This type uses recursive type alias, see more:
-// https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Concat<
   // The first array to concatenate.
   T1 extends Array<any>,
@@ -14,9 +12,13 @@ export type Concat<
   T2 extends Array<any>
 > =
   //
+  // Computation is split into multiple steps with `infer`, see more:
+  // https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17.
   Reverse<T1> extends infer G ? Concatenation<Cast<G, Array<any>>, T2> : never;
 
 //
+// This type uses recursive (and not officially supported) type alias, see more:
+// https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 type Concatenation<T1 extends Array<any>, T2 extends Array<any>> = {
   //
   finish: Reverse<T1>;

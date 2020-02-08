@@ -7,7 +7,7 @@ import { Gte, Lte } from '..';
 //
 export type Clamp<A extends number, L extends number, U extends number> =
   // If `A` is greater than the upper limit, return the upper limit. Otherwise,
-  // if `A` is less than the lower limit, return the lower limit.
+  // check if `A` is less than the lower limit and return the lower limit.
   //
-  // If both are `false` then `A` is within our limits and we return it:
+  // If both are `false` then `A` is within the limits and it's returned:
   Gte<A, U> extends true ? U : Lte<A, L> extends true ? L : A;

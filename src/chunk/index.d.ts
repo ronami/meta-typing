@@ -6,7 +6,7 @@ import { Reverse, Unshift, Take, Cast, Drop } from '..';
 //
 //   type S = Chunk<['a', 'b', 'c', 'd'], 2>; // [['a', 'b'], ['c', 'd']]
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Chunk<
   // The array to process.

@@ -5,7 +5,7 @@ import { Head, Lte, Tail, Unshift, Cast, Take, Divide, Size, Drop } from '..';
 //
 // type S = MergeSort<[6, 9, 7, 1, 0, 4, 3]>; // [0, 1, 3, 4, 6, 7, 9]
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type MergeSort<
   // The input array.

@@ -4,7 +4,7 @@ import { Add, Dec, Cast } from '..';
 //
 //   type S = Multiply<2, 3>; // 6
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Multiply<
   // The first number in a multiplication.

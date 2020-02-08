@@ -5,7 +5,7 @@ import { Tail, Head, Unshift, Reverse, Dec } from '..';
 //
 //   type S = Slice<[1, 2, 3, 4, 5, 6], 2, 3>; // [3, 4, 5]
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Slice<
   // The array to slice.

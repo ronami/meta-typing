@@ -11,7 +11,7 @@ import { Inc, IsNever } from '..';
 // This is relying on how we implemented the `Dec` method: If a value is out of scope (smaller
 // than -1) we return `never`. Similarily to how the `-Infinity` value works in JavaScript.
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Lte<
   // Accept two numbers two compare, should return `true` if `A` is smaller than or equals to

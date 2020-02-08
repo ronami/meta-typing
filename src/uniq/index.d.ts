@@ -5,7 +5,7 @@ import { Tail, Head, Includes, Unshift, Reverse } from '..';
 //
 //   type S = Uniq<[2, 1, 2]>; // [2, 1]
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Uniq<
   // The input array.

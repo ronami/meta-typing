@@ -5,7 +5,7 @@ import { Head, Tail, IsEqual, Inc } from '..';
 //
 //   type S = IndexOf<[1, 2, 3], 2>; // 1
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type IndexOf<
   // The array to inspect.

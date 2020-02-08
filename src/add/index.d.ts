@@ -4,7 +4,7 @@ import { Inc, Dec } from '..';
 //
 //   type S = Add<6, 4>; // 10
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Add<
   // Accept two numbers two add together.
@@ -15,7 +15,7 @@ export type Add<
   finish: A;
   // Otherwise, call `Add` recursively while increasing `A`'s value by 1 and decreasing
   // `B`'s value by 1. Eventually, `B`'s value will be 0 and the recursion will terminate.
-  //
+  next: Add<Inc<A>, Dec<B>>;
   // For example, Add<3, 2> will first translate into another `Add` call that will
   // increase `A`'s value by 1 and decrease `B`'s value by 1: Add<4, 1>.
   //
@@ -23,5 +23,4 @@ export type Add<
   //
   // Finally, now that `B`'s value is 0, the recursion terminates and returns the
   // accumulated value of `A` which is 5.
-  next: Add<Inc<A>, Dec<B>>;
 }[B extends 0 ? 'finish' : 'next'];

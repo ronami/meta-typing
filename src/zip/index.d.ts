@@ -6,7 +6,7 @@ import { Inc, Reverse, Unshift, Tail, Head, IsEqual, Cast } from '..';
 //
 //   type S = Zip<[['a', 'b'], [1, 2], [true, false]]>; // [['a', 1, true], ['b', 2, false]]
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Zip<
   // The arrays to process.

@@ -5,7 +5,7 @@ import { Tail, Unshift, Dec, Reverse, Head } from '..';
 //
 //   type S = Take<[1, 2, 3, 4, 5, 6], 3>; // [1, 2, 3]
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Take<
   // The input array.

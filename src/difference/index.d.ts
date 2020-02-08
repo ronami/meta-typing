@@ -5,7 +5,7 @@ import { Tail, Head, Unshift, InEvery, Reverse } from '..';
 //
 //   type S = Difference<[[1, 2, 3], [2, 3, 4]]>; // [1]
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Difference<
   // The arrays to inspect.

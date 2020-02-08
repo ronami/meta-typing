@@ -11,7 +11,7 @@ import { Inc, IsNever } from '..';
 // We're relying on how we implemented the `Inc` method: If a value is out of scope (larger
 // than 10) we return `never`. Similarily to how the `Infinity` value works in JavaScript.
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Gte<
   // Accept two numbers two compare, should return `true` if `A` is bigger than or equals to

@@ -6,9 +6,9 @@ import { Subtract, Dec, Inc, Cast, IsNever } from '..';
 //
 // This version is only going to work for computation that result with whole numbers. If
 // a division results in a fraction the result will be rounded down. For example, Divide<5, 2>
-// will result with 2.
+// will result in 2.
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Divide<
   // The first number in a division.

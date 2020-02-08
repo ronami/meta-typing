@@ -12,7 +12,7 @@ export type Min<
   // the current lowest element and the rest of the array.
   T extends [] ? never : Minimum<Tail<T>, Head<T>>;
 
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 type Minimum<
   // The array to iterate over.

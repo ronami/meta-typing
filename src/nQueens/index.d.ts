@@ -32,7 +32,7 @@ type Board = Array<number>;
 
 // Place N chess queens on an N×N chessboard so that no two queens threaten each other.
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type nQueens<
   // The size of the board and the number of queens to place.

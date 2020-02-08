@@ -5,7 +5,7 @@ import { Inc, Unshift, Reverse, Gte } from '..';
 //
 //   type S = Range<1, 5>; // [1, 2, 3, 4]
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Range<
   // The start of the range.

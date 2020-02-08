@@ -4,7 +4,7 @@ import { Add, Tail, Head, Cast } from '..';
 //
 //   type S = Sum<[1, 2, 3]>; // 6
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Sum<
   // The array to iterate over.

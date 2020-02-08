@@ -4,7 +4,7 @@ import { Head, Tail, Includes, Unshift, Reverse } from '..';
 //
 //   type S = Pull<[1, 2, 3], [2]>; // [1, 3]
 //
-// This type uses recursive type alias, see more:
+// This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Pull<
   // The input array.
