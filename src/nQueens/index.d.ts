@@ -39,15 +39,15 @@ export type nQueens<
   N extends number,
   // An array to hold all possible boards (solutions). Starts with an empty board ([]).
   B extends Array<Board> = [[]],
-  // A counter from 0 to `N` that ends the recursion.
+  // A counter from that tracks the times the recursion has run.
   C extends number = 0
-  // A recursive function that runs `Step` `N` times. Every time `Queens` runs again it
-  // checks that in every board a queen can be placed on the next row.
+  // Every time it runs, the recursion tries to place a queen in the next row of each board
+  // (solution). After trying to place a queen in every board `N` times, the recursion
+  // terminates.
 > = {
-  // Since the recursion runs `N` times, if `C` that started at 0 equals `N`, end the
-  // recursion.
+  // End the recursion if the internal counter reached `N`.
   finish: B;
-  // Otherwise, run `Step` and pass its resulting boards to another recursive call to
+  // Otherwise, run `Step`, passing its resulting boards to another recursive call to
   // `Queens`.
   //
   // Computation is split into multiple steps with `infer`, see more:
@@ -57,8 +57,7 @@ export type nQueens<
     : never;
 }[IsEqual<N, C> extends true ? 'finish' : 'next'];
 
-// Iterates over the array of boards and tries to call `Develop` on every one. `Develop` will try
-// to place a queen in the next row in every one of the boards.
+// A helper function to iterates over the array of boards and call `Develop` on every one.
 type Step<
   // The size of the board and the number of queens to place.
   N extends number,
@@ -81,8 +80,8 @@ type Step<
     : never;
 }[B extends [] ? 'finish' : 'next'];
 
-// Takes an existing board and returns an array of all possible boards that can be developed from it by
-// placing a queen in the next row.
+// Takes an existing board and returns an array of all possible boards that can be developed from
+// it by placing a queen on the next row.
 //
 // For example, the board [3] represents a board with only one queen (placed in the first row on
 // the 3rd column):
