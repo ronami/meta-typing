@@ -41,7 +41,6 @@ $ yarn test
   - [Divide](src/divide/index.d.ts) - divides two numbers.
   - [Greater than or equal](src/gte/index.d.ts) - checks if a value is greater than or equal to another value.
   - [Less than or equal](src/lte/index.d.ts) - checks if a value is less than or equal to another value.
-  - [Clamp](src/clamp/index.d.ts) - clamps number within the inclusive lower and upper bounds.
   - [Max](src/max/index.d.ts) - computes the maximum value of an array
   - [Min](src/min/index.d.ts) - computes the minimum value of an array.
   - [Sum](src/sum/index.d.ts) - computes the sum of the values in array.
@@ -56,20 +55,16 @@ $ yarn test
   - [Drop](src/drop/index.d.ts) - creates a slice of an array with `n` elements dropped from the beginning
   - [Take](src/take/index.d.ts) - creates a slice of an array with `n` elements taken from the beginning.
   - [Uniq](src/uniq/index.d.ts) - creates a duplicate-free version of an array.
-  - [Last](src/last/index.d.ts) - gets the last element of an array.
   - [Includes](src/includes/index.d.ts) - checks if a value is an array.
   - [IndexOf](src/indexOf/index.d.ts) - gets the index at which the first occurrence of a value is found in an array.
   - [Difference](src/difference/index.d.ts) - creates an array of values from the first array that are not included in the other given arrays.
   - [Intersection](src/intersection/index.d.ts) - creates an array of unique values that are included in all given arrays.
   - [Slice](src/slice/index.d.ts) - creates a slice of an array from start up to, but not including, end.
   - [Flatten](src/flatten/index.d.ts) - flattens an array a single level deep.
-  - [Initial](src/initial/index.d.ts) - gets all but the last element of an array.
   - [Pull](src/pull/index.d.ts) - removes all given values from an array.
-  - [Compact](src/compact/index.d.ts) - creates an array with all falsey values removed.
   - [Chunk](src/chunk/index.d.ts) - creates an array of elements split into groups the length of size.
   - [Zip](src/zip/index.d.ts) - creates an array of grouped elements, the first of which contains the first elements of the given arrays, the second of which contains the second elements of the given arrays, and so on.
   - [Range](src/range/index.d.ts) - creates an array of numbers progressing from start up to, but not including, end.
-  - [Nth](src/nth/index.d.ts) - gets the element at index `n` of an array.
 
 - **Sorting**
 
@@ -80,7 +75,6 @@ $ yarn test
 - **Utility**
 
   - [IsEqual](src/isEqual/index.d.ts) - compares between two values to determine if they are equivalent.
-  - [InRange](src/inRange/index.d.ts) - check if a value is between start and up to, but not including, end.
 
 - **Puzzles**
 
