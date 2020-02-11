@@ -1,4 +1,4 @@
-import { Concat } from '..';
+import { Concat, Cast, Unshift, Reverse, Head, Tail } from '..';
 
 // A binary tree is either empty or it has a value and two children, both of which are
 // binary trees themselves.
@@ -52,11 +52,11 @@ export type Leaf<A> = Branch<A, Empty, Empty>;
 //        / \
 //       b   c
 //      /     \
-//     d       e
+//     d       f
 //            / \
-//           f   g
+//           g   e
 //
-type Tree1 = Branch<
+export type Tree1 = Branch<
   // Value.
   'a',
   // Left child.
@@ -85,21 +85,100 @@ type Tree1 = Branch<
   >
 >;
 
-// A function that iterates over a tree and returns an array with the values of its
-// leaves (Reminder: leaves are trees with a value and no children).
-export type Leaves<T extends Tree<any, any, any>> = {
-  // If the tree is `Empty` then it has no value and no children. Return an empty array.
+//
+export type DepthFirst<
+  //
+  T extends Tree<any, any, any>
+> = {
+  //
   finish: [];
-  // Next, check if the tree is a `Branch` with both of its children `Empty`. If it is,
-  // then it's a leaf. Return an array with its value.
-  leaf: [T extends Branch<infer V, any, any> ? V : never];
-  // Otherwise, use `infer` to match the values of the left and the right trees. Then,
-  // run `Leaves` recursively on both and concatenate the resulting arrays.
+  //
   next: T extends Branch<infer V, infer L, infer R>
-    ? Concat<Leaves<L>, Leaves<R>>
+    ? DepthFirst<L> extends infer G
+      ? DepthFirst<R> extends infer H
+        ? Concat<Cast<G, Array<any>>, Cast<H, Array<any>>> extends infer J
+          ? Unshift<Cast<J, Array<any>>, V>
+          : never
+        : never
+      : never
     : never;
-}[T extends Empty
-  ? 'finish'
-  : T extends Branch<any, Empty, Empty>
-  ? 'leaf'
-  : 'next'];
+}[T extends Empty ? 'finish' : 'next'];
+
+//
+export type BreadthFirst<
+  //
+  T extends Tree<any, any, any>
+> =
+  //
+  T extends Empty ? [] : Breadth<[T]>;
+
+//
+type Breadth<
+  //
+  Q extends Array<Tree<any, any, any>>,
+  //
+  R extends Array<any> = []
+> = {
+  //
+  finish: R;
+  //
+  next: ExtractNodes<Q> extends infer G
+    ? ExtractValues<Q> extends infer J
+      ? Concat<R, Cast<J, Array<any>>> extends infer H
+        ? Breadth<Cast<G, Array<any>>, Cast<H, Array<any>>>
+        : never
+      : never
+    : never;
+}[Q extends [] ? 'finish' : 'next'];
+
+//
+type ExtractValues<
+  //
+  T extends Array<Tree<any, any, any>>,
+  //
+  R extends Array<any> = []
+> = {
+  //
+  finish: Reverse<R>;
+  //
+  next: ExtractValues<Tail<T>, Unshift<R, ExtractValue<Head<T>>>>;
+}[T extends [] ? 'finish' : 'next'];
+
+//
+type ExtractNodes<
+  //
+  T extends Array<Tree<any, any, any>>,
+  //
+  R extends Array<any> = []
+> = {
+  //
+  finish: R;
+  //
+  next: Concat<R, ExtractNode<Head<T>>> extends infer H
+    ? ExtractNodes<Tail<T>, Cast<H, Array<any>>>
+    : never;
+}[T extends [] ? 'finish' : 'next'];
+
+//
+type ExtractValue<
+  //
+  T extends Tree<any, any, any>
+> =
+  //
+  T extends Tree<infer V, any, any> ? V : never;
+
+//
+type ExtractNode<
+  //
+  T extends Tree<any, any, any>
+> =
+  //
+  T extends Leaf<any>
+    ? []
+    : T extends Tree<any, Empty, infer R>
+    ? [R]
+    : T extends Tree<any, infer L, Empty>
+    ? [L]
+    : T extends Tree<any, infer L, infer R>
+    ? [L, R]
+    : never;
