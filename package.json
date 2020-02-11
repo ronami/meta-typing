@@ -10,8 +10,8 @@
     "lint": "eslint . --ext js,ts --max-warnings 0"
   },
   "tsd": {
-		"directory": "src"
-	},
+    "directory": "src"
+  },
   "devDependencies": {
     "tsd": "^0.11.0",
     "@typescript-eslint/eslint-plugin": "^2.12.0",
