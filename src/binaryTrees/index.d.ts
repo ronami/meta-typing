@@ -89,7 +89,9 @@ export type Tree1 = Branch<
 // One starts at the root (selecting some arbitrary node as the root in the case of a graph) and
 // explores as far as possible along each branch before backtracking./
 //
-// As an example, the following will return an array with all values of a tree.
+// As an example, the following will return an array with all values of a tree:
+//
+type S1 = DepthFirst<Tree1>; // ["a", "b", "d", "c", "f", "g", "e"]
 //
 // https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/tree/depth-first-search.
 export type DepthFirst<
@@ -118,6 +120,8 @@ export type DepthFirst<
 // neighbors.
 //
 // As an example, the following will return an array with all values of a tree.
+//
+type S2 = BreadthFirst<Tree1>; // ["a", "b", "c", "d", "f", "g", "e"]
 //
 // https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/tree/breadth-first-search.
 export type BreadthFirst<
@@ -150,6 +154,9 @@ type Breadth<
 
 // A helper function to map over an array and call `ExtractValue` for each of the trees
 // in the array.
+//
+type S3 = ExtractValues<[Branch<1, Leaf<2>, Leaf<3>>]>; // [1]
+//
 type ExtractValues<
   // The array of trees to iterate over.
   T extends Array<Tree<any, any, any>>,
@@ -165,6 +172,9 @@ type ExtractValues<
 
 // A helper function to map over an array and call `ExtractNode` for each of the trees
 // in the array.
+//
+type S4 = ExtractNodes<[Branch<1, Leaf<2>, Leaf<3>>]>; // [Leaf<2>, Leaf<3>]
+//
 type ExtractNodes<
   // The array of trees to iterate over.
   T extends Array<Tree<any, any, any>>,

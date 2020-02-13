@@ -2,7 +2,7 @@ import { Add, Tail, Head, Cast } from '..';
 
 // Computes the sum of the values in array: https://lodash.com/docs/4.17.15#sum.
 //
-//   type S = Sum<[1, 2, 3]>; // 6
+type S = Sum<[1, 2, 3]>; // 6
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.

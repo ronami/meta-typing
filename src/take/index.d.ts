@@ -3,7 +3,7 @@ import { Tail, Unshift, Dec, Reverse, Head } from '..';
 // Creates a slice of an array with n elements taken from the beginning:
 // https://lodash.com/docs/4.17.15#take.
 //
-//   type S = Take<[1, 2, 3, 4, 5, 6], 3>; // [1, 2, 3]
+type S = Take<[1, 2, 3, 4, 5, 6], 3>; // [1, 2, 3]
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.

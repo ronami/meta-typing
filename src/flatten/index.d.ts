@@ -7,7 +7,7 @@ type Push<T extends Array<any>, E> =
 
 // Flattens an array a single level deep: https://lodash.com/docs/4.17.15#flatten.
 //
-//   type S = Flatten<[1, [2, [3, [4]], 5]]>; // [1, 2, [3, [4]], 5]
+type S = Flatten<[1, [2, [3, [4]], 5]]>; // [1, 2, [3, [4]], 5]
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.

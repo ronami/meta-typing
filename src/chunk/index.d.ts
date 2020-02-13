@@ -4,7 +4,7 @@ import { Reverse, Unshift, Take, Cast, Drop } from '..';
 // be split evenly, the final chunk will be the remaining elements:
 // https://lodash.com/docs/4.17.15#chunk.
 //
-//   type S = Chunk<['a', 'b', 'c', 'd'], 2>; // [['a', 'b'], ['c', 'd']]
+type S = Chunk<['a', 'b', 'c', 'd'], 2>; // [['a', 'b'], ['c', 'd']]
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.

@@ -2,7 +2,7 @@ import { Dec } from '..';
 
 // Subtracts two numbers: https://lodash.com/docs/4.17.15#subtract.
 //
-//   type S = Subtract<5, 2>; // 3
+type S = Subtract<5, 2>; // 3
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.

@@ -2,7 +2,7 @@ import { Inc, Dec } from '..';
 
 // Adds two numbers: https://lodash.com/docs/4.17.15#add.
 //
-//   type S = Add<6, 4>; // 10
+type S = Add<6, 4>; // 10
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.

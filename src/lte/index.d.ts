@@ -2,7 +2,7 @@ import { Inc, IsNever } from '..';
 
 // Checks if `A` is less than or equal to `B`: https://lodash.com/docs/4.17.15#lte.
 //
-//   type S = Lte<1, 3>; // true
+type S = Lte<1, 3>; // true
 //
 // Since TypeScript's type system has no concept of arithmetic, we try decreasing both `A`
 // and `B` by 1 every time the recursion runs. The first one to equal the `never` type is

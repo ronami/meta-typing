@@ -3,7 +3,7 @@ import { Head, Tail, Unshift } from '..';
 // Reverses an array so that the first element becomes the last, the second element
 // becomes the second to last, and so on: https://lodash.com/docs/4.17.15#reverse.
 //
-//   type S = Reverse<[1, 2, 3]>; // [3, 2, 1]
+type S = Reverse<[1, 2, 3]>; // [3, 2, 1]
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.

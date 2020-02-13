@@ -2,7 +2,7 @@ import { Subtract, Dec, Inc, Cast, IsNever } from '..';
 
 // Divide two numbers: https://lodash.com/docs/4.17.15#divide.
 //
-//   type S = Divide<6, 2>; // 3
+type S = Divide<6, 2>; // 3
 //
 // This version is only going to work for computation that result with whole numbers. If
 // a division results in a fraction the result will be rounded down. For example, Divide<5, 2>

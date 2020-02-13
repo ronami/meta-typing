@@ -3,7 +3,7 @@ import { Tail, Includes, Head } from '..';
 // Adds an element of the beginning of an array:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift.
 //
-//   type S = Unshift<[1, 2, 3], 0>; // [0, 1, 2, 3]
+type S = Unshift<[1, 2, 3], 0>; // [0, 1, 2, 3]
 //
 export type Unshift<
   // The input array.

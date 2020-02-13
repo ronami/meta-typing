@@ -3,7 +3,7 @@ import { Head, Tail, IsEqual, Inc } from '..';
 // Gets the index at which the first occurrence of value is found in an array. Returns
 // the index of the matched value, else -1: https://lodash.com/docs/4.17.15#indexOf.
 //
-//   type S = IndexOf<[1, 2, 3], 2>; // 1
+type S = IndexOf<[1, 2, 3], 2>; // 1
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.

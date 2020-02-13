@@ -3,7 +3,7 @@ import { Tail, Head, Lte, Unshift, Cast } from '..';
 // Sorts an array of number in a descending order with insertion-sort algorithm.
 // https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sorting/insertion-sort.
 //
-// type S = InsertionSort<[6, 9, 7, 1, 0, 4, 3]>; // [0, 1, 3, 4, 6, 7, 9]
+type S1 = InsertionSort<[6, 9, 7, 1, 0, 4, 3]>; // [0, 1, 3, 4, 6, 7, 9]
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
@@ -26,6 +26,9 @@ type InsertionSort<
 }[T extends [] ? 'finish' : 'next'];
 
 // Helper function to insert a number into an already sorted array.
+//
+type S2 = Insert<3, [1, 2, 4, 5]>; // [1, 2, 3, 4, 5]
+//
 type Insert<
   // The number to insert.
   N extends number,

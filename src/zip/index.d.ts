@@ -4,7 +4,7 @@ import { Reverse, Unshift, Tail, Head, Cast } from '..';
 // of the given arrays, the second of which contains the second elements of the given
 // arrays, and so on: https://lodash.com/docs/4.17.15#zip.
 //
-//   type S = Zip<[['a', 'b'], [1, 2], [true, false]]>; // [['a', 1, true], ['b', 2, false]]
+type S1 = Zip<[['a', 'b'], [1, 2], [true, false]]>; // [['a', 1, true], ['b', 2, false]]
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
@@ -33,6 +33,9 @@ export type Zip<
 
 // A helper function that maps over an array and returns a new array with the first element
 // of each array.
+//
+type S2 = AllHeads<[['a', 'b'], [1, 2], [true, false]]>; // ["a", 1, true]
+//
 type AllHeads<
   // The input array.
   T extends Array<Array<any>>,
@@ -49,6 +52,9 @@ type AllHeads<
 
 // A helper function that maps over an array and returns a new array with every element
 // but the first element of each array.
+//
+type S3 = AllTails<[['a', 'b'], [1, 2], [true, false]]>; // [["b"], [2], [false]]
+//
 type AllTails<
   // The input array.
   T extends Array<Array<any>>,

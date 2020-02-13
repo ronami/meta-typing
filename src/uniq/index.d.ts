@@ -3,7 +3,7 @@ import { Tail, Head, Includes, Unshift, Reverse } from '..';
 // Creates a duplicate-free version of an array, in which only the first occurrence
 // of each element is kept: https://lodash.com/docs/4.17.15#uniq.
 //
-//   type S = Uniq<[2, 1, 2]>; // [2, 1]
+type S = Uniq<[2, 1, 2]>; // [2, 1]
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.

@@ -3,7 +3,7 @@ import { Tail, Head, Unshift, InEvery, Reverse } from '..';
 // Creates an array of values from the first array that are not included in the other given arrays:
 // https://lodash.com/docs/4.17.15#difference.
 //
-//   type S = Difference<[[1, 2, 3], [2, 3, 4]]>; // [1]
+type S = Difference<[[1, 2, 3], [2, 3, 4]]>; // [1]
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.

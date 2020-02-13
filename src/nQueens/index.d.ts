@@ -32,6 +32,8 @@ type Board = Array<number>;
 
 // Place N chess queens on an N×N chessboard so that no two queens threaten each other.
 //
+type S1 = nQueens<4>; // [[2, 4, 1, 3], [3, 1, 4, 2]]
+//
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type nQueens<
@@ -58,6 +60,9 @@ export type nQueens<
 }[IsEqual<N, C> extends true ? 'finish' : 'next'];
 
 // A helper function to iterates over the array of boards and call `Develop` on every one.
+//
+type S2 = Step<4, [[1], [2]]>; // [[4, 1], [3, 1], [4, 2]]
+//
 type Step<
   // The size of the board and the number of queens to place.
   N extends number,
@@ -103,6 +108,9 @@ type Step<
 // We can't put a queen anywhere else on row 2 because it will be threatened by our first queen
 // on row 1. For this board ([3]), `Develop` will return just one board that's safe to continue with:
 // [[1, 3]].
+//
+type S3 = Develop<4, [1]>; // [[4, 1], [3, 1]]
+//
 type Develop<
   // The size of the board and the number of queens to place.
   N extends number,
@@ -128,6 +136,9 @@ type Develop<
 
 // Checks if it's safe to place a chess queen in column `X` on the board `T` so it's not threatened
 // by other queens on the board.
+//
+type S4 = IsSafe<3, [1]>; // true
+//
 type IsSafe<
   // The column number to check it's safe to place a queen on the board.
   X extends number,

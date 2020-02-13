@@ -3,7 +3,7 @@ import { Tail, Head, Unshift, InEvery, Reverse } from '..';
 // Creates an array of unique values that are included in all given arrays:
 // https://lodash.com/docs/4.17.15#intersection.
 //
-//   type S = Intersection<[[1, 2, 3], [2, 3, 4]]>; // [2, 3]
+type S = Intersection<[[1, 2, 3], [2, 3, 4]]>; // [2, 3]
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.

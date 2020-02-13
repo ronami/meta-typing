@@ -2,7 +2,7 @@ import { Tail, Head, IsEqual } from '..';
 
 // Checks if a value is an array: https://lodash.com/docs/4.17.15#includes.
 //
-//   type S = Includes<[1, 2, 3], 2>; // true
+type S = Includes<[1, 2, 3], 2>; // true
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.

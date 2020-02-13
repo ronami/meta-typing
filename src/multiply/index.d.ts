@@ -2,7 +2,7 @@ import { Add, Dec, Cast } from '..';
 
 // Multiply two numbers: https://lodash.com/docs/4.17.15#multiply.
 //
-//   type S = Multiply<2, 3>; // 6
+type S = Multiply<2, 3>; // 6
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.

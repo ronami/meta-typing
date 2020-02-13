@@ -13,7 +13,7 @@ import {
 // Sorts an array of number in a descending order with quick-sort algorithm.
 // https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sorting/quick-sort.
 //
-// type S = QuickSort<[6, 9, 7, 1, 0, 4, 3]>; // [0, 1, 3, 4, 6, 7, 9]
+type S1 = QuickSort<[6, 9, 7, 1, 0, 4, 3]>; // [0, 1, 3, 4, 6, 7, 9]
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
@@ -50,6 +50,9 @@ export type QuickSort<
 }[T extends [] ? 'finish' : 'next'];
 
 // Returns an array with all the values that are smaller than or equal the pivot (`E`).
+//
+type S2 = SmallerPart<2, [2, 3, 1, 4]>; // [2, 1]
+//
 type SmallerPart<
   // The pivot element.
   E extends number,
@@ -70,6 +73,9 @@ type SmallerPart<
 }[T extends [] ? 'finish' : Lte<Head<T>, E> extends true ? 'insert' : 'skip'];
 
 // Returns an array with all the values that are bigger than the pivot (`E`).
+//
+type S3 = BiggerPart<2, [2, 3, 1, 4]>; // [3, 4]
+//
 type BiggerPart<
   // The pivot element.
   E extends number,

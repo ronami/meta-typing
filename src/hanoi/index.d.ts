@@ -3,6 +3,8 @@ import { Dec, Concat, Unshift, Cast } from '..';
 // A mathematical game or puzzle that consists of three rods and a number of disks of different sizes:
 // https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/hanoi-tower.
 //
+type S = Hanoi<2>; // [["a", "c"], ["a", "b"], ["c", "b"]]
+//
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Hanoi<

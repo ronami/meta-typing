@@ -3,7 +3,7 @@ import { Head, Lte, Tail, Unshift, Cast, Take, Divide, Size, Drop } from '..';
 // Sorts an array of number in a descending order with merge-sort algorithm.
 // https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sorting/merge-sort.
 //
-// type S = MergeSort<[6, 9, 7, 1, 0, 4, 3]>; // [0, 1, 3, 4, 6, 7, 9]
+type S1 = MergeSort<[6, 9, 7, 1, 0, 4, 3]>; // [0, 1, 3, 4, 6, 7, 9]
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
@@ -43,18 +43,26 @@ export type MergeSort<
 
 // Splits an array into two parts and returns the first part. For example, FirstHalf<[1, 2, 3, 4]>
 // will return [1, 2].
+//
+type S2 = FirstHalf<[1, 2, 3, 4]>; // [1, 2]
+//
 type FirstHalf<T extends Array<any>> =
   // Take the first half of the array.
   Take<T, Divide<Size<T>, 2>>;
 
 // Splits an array into two parts and returns the last part. For example, SecondHalf<[1, 2, 3, 4]>
 // will return [3, 4].
+//
+type S3 = SecondHalf<[1, 2, 3, 4]>; // [3, 4]
+//
 type SecondHalf<T extends Array<any>> =
   // Drop the first half of the array and return the rest.
   Drop<T, Divide<Size<T>, 2>>;
 
-// Takes to sorted array and merges them together with correct sorting. For example,
-// Merge<[1, 3], [2, 4]> will return [1, 2, 3, 4].
+// Takes to sorted array and merges them together with correct sorting.
+//
+type S4 = Merge<[1, 3], [2, 4]>; // [1, 2, 3, 4]
+//
 type Merge<
   // The first sorted array to merge.
   A extends Array<any>,

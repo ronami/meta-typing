@@ -5,6 +5,9 @@
 import { Zip, Reverse, Cast, Unshift, Tail, Head } from '..';
 
 // Rotates a matrix counter clock-wise.
+//
+type S1 = RotateCCW<[[1, 2, 3], [4, 5, 6], [7, 8, 9]]>; // [[3, 6, 9], [2, 5, 8], [1, 4, 7]]
+//
 export type RotateCCW<
   // The input matrix. The matrix is an array of arrays and represents an image.
   T extends Array<Array<any>>
@@ -13,6 +16,9 @@ export type RotateCCW<
   Zip<T> extends infer G ? Reverse<Cast<G, Array<any>>> : never;
 
 // Rotates a matrix clock-wise.
+//
+type S2 = RotateCW<[[1, 2, 3], [4, 5, 6], [7, 8, 9]]>; // [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
+//
 export type RotateCW<
   // The input matrix. The matrix is an array of arrays and represents an image.
   T extends Array<Array<any>>
@@ -21,6 +27,8 @@ export type RotateCW<
   Zip<T> extends infer G ? ReverseArray<Cast<G, Array<any>>> : never;
 
 // Helper function that takes an array of arrays and reverses each of the inner arrays.
+//
+type S3 = ReverseArray<[[1, 2, 3], [4, 5, 6], [7, 8, 9]]>; // [[3, 2, 1], [6, 5, 4], [9, 8, 7]]
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.

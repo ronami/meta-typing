@@ -2,7 +2,7 @@ import { Head, Tail, Includes, Unshift, Reverse } from '..';
 
 // Removes all given values from an array: https://lodash.com/docs/4.17.15#nth.
 //
-//   type S = Pull<[1, 2, 3], [2]>; // [1, 3]
+type S = Pull<[1, 2, 3], [2]>; // [1, 3]
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.

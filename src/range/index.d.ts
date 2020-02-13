@@ -3,7 +3,7 @@ import { Inc, Unshift, Reverse, Gte } from '..';
 // Creates an array of numbers progressing from start up to, but not including, end:
 // https://lodash.com/docs/4.17.15#range.
 //
-//   type S = Range<1, 5>; // [1, 2, 3, 4]
+type S = Range<1, 5>; // [1, 2, 3, 4]
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.

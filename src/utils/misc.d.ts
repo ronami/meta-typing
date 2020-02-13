@@ -4,9 +4,9 @@ export type IsNever<T> = [T] extends [never] ? true : false;
 // Check if `A` extends `B`. If that's the case, just return `A`. Otherwise, `B`
 // is returned.
 //
-//   type S = Cast<5, number>; // 5
-//   type R = Cast<'5', number>; // number
-//   type E = Cast<'hello', boolean>; // boolean
+type S1 = Cast<5, number>; // 5
+type S2 = Cast<'5', number>; // number
+type S3 = Cast<'hello', boolean>; // boolean
 //
 // This is useful when the compiler doesn't know that a type passes some generic constraint
 // (see https://www.typescriptlang.org/docs/handbook/generics.html#generic-constraints).
