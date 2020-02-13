@@ -1,4 +1,4 @@
-import { Inc, Reverse, Unshift, Tail, Head, IsEqual, Cast } from '..';
+import { Reverse, Unshift, Tail, Head, Cast, IsNever } from '..';
 
 // Creates an array of grouped elements, the first of which contains the first elements
 // of the given arrays, the second of which contains the second elements of the given
@@ -8,65 +8,21 @@ import { Inc, Reverse, Unshift, Tail, Head, IsEqual, Cast } from '..';
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
-export type Zip<
-  // The arrays to process.
-  T extends Array<Array<any>>,
-  //
-  N extends number = 0,
-  //
-  R extends Array<Array<any>> = []
-> =
-  //
-  GetAtIndex<T, N> extends infer G
-    ? Zipper<T, N, R, Cast<G, Array<any>>>
-    : never;
-
-//
-type GetAtIndex<
-  //
-  B extends Array<Array<any>>,
-  //
-  C extends number,
-  //
-  R extends Array<any> = []
-> = {
-  //
+export type Zip<T extends Array<Array<any>>, R extends Array<any> = []> = {
   finish: Reverse<R>;
-  //
-  next: Unshift<R, Head<B>[C]> extends infer G
-    ? GetAtIndex<Tail<B>, C, Cast<G, Array<any>>>
+  next: AllTails<T> extends infer G
+    ? Zip<Cast<G, Array<any>>, Unshift<R, AllHeads<T>>>
     : never;
-}[B extends [] ? 'finish' : 'next'];
+}[T extends [] ? 'finish' : T extends [[], ...Array<any>] ? 'finish' : 'next'];
 
-//
-type AllEqual<T extends Array<any>, E> = {
-  //
-  finish: true;
-  //
-  next: AllEqual<Tail<T>, E>;
-  //
-  bail: false;
-}[T extends [] ? 'finish' : IsEqual<Head<T>, E> extends true ? 'next' : 'bail'];
+type Default<V, D> = IsNever<V> extends true ? D : V;
 
-//
-type Zipper<
-  //
-  T extends Array<Array<any>>,
-  //
-  N extends number,
-  //
-  R extends Array<Array<any>>,
-  //
-  F extends Array<any>
-> = {
-  //
-  empty: [];
-  //
+type AllHeads<T extends Array<Array<any>>, R extends Array<any> = []> = {
   finish: Reverse<R>;
-  //
-  next: Zip<T, Inc<N>, Unshift<R, F>>;
-}[T extends []
-  ? 'empty'
-  : AllEqual<F, undefined> extends true
-  ? 'finish'
-  : 'next'];
+  next: AllHeads<Tail<T>, Unshift<R, Default<Head<Head<T>>, undefined>>>;
+}[T extends [] ? 'finish' : 'next'];
+
+type AllTails<T extends Array<Array<any>>, R extends Array<any> = []> = {
+  finish: Reverse<R>;
+  next: AllTails<Tail<T>, Unshift<R, Tail<Head<T>>>>;
+}[T extends [] ? 'finish' : 'next'];
