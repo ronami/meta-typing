@@ -1,6 +1,6 @@
 import { Inc, IsNever } from '..';
 
-// Checks if `A` is less than or equal to `B`: https://lodash.com/docs/4.17.15#lt.
+// Checks if `A` is less than or equal to `B`: https://lodash.com/docs/4.17.15#lte.
 //
 type S = Lte<1, 3>; // true
 //

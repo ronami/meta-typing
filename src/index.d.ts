@@ -15,7 +15,6 @@ export { InsertionSort } from './insertionSort';
 export { Intersection } from './intersection';
 export { IsEqual } from './isEqual';
 export { Lte } from './lte';
-export { Lt } from './lt';
 export { Max } from './max';
 export { MergeSort } from './mergeSort';
 export { Min } from './min';

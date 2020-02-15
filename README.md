@@ -41,11 +41,10 @@ $ yarn test
   - [Divide](src/divide/index.d.ts) - divides two numbers.
   - [Greater than or equal](src/gte/index.d.ts) - checks if a value is greater than or equal to another value.
   - [Less than or equal](src/lte/index.d.ts) - checks if a value is less than or equal to another value.
-  - [Less than](src/lt/index.d.ts) - checks if a value is less than another value.
-  - [Max](src/max/index.d.ts) - computes the maximum value of an array
+  - [Max](src/max/index.d.ts) - computes the maximum value of an array.
   - [Min](src/min/index.d.ts) - computes the minimum value of an array.
   - [Sum](src/sum/index.d.ts) - computes the sum of the values in array.
-  - [Remainder](src/remainder/index.d.ts) - return the remainder (%) when one number is diveded by a second number
+  - [Remainder](src/remainder/index.d.ts) - return the remainder (%) when one number is diveded by a second number.
 
 - **Lists**
 
@@ -54,7 +53,7 @@ $ yarn test
   - [Reverse](src/reverse/index.d.ts) - Reverses an array so that the first element becomes the last, the second element becomes the second to last, and so on.
   - [Size](src/size/index.d.ts) - gets the size of an array.
   - [Concat](src/concat/index.d.ts) - creates a new array by concatenating two arrays together.
-  - [Drop](src/drop/index.d.ts) - creates a slice of an array with `n` elements dropped from the beginning
+  - [Drop](src/drop/index.d.ts) - creates a slice of an array with `n` elements dropped from the beginning.
   - [Take](src/take/index.d.ts) - creates a slice of an array with `n` elements taken from the beginning.
   - [Uniq](src/uniq/index.d.ts) - creates a duplicate-free version of an array.
   - [Includes](src/includes/index.d.ts) - checks if a value is an array.
