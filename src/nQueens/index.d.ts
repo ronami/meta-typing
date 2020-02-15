@@ -59,7 +59,7 @@ export type nQueens<
     : never;
 }[IsEqual<N, C> extends true ? 'finish' : 'next'];
 
-// A helper function to iterates over the array of boards and call `Develop` on every one.
+// A helper function that iterates over the array of boards and call `Develop` on every one.
 //
 type S2 = Step<4, [[1], [2]]>; // [[4, 1], [3, 1], [4, 2]]
 //
