@@ -10,7 +10,7 @@ The goal of this project is to explore TypeScript's type system in an unconventi
 
 Just to see how far I can push it, I tried implementing the classical [Eight queens puzzle](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/n-queens). It's crazy that it actually works, [check out how it's implemented](src/nQueens/index.d.ts).
 
-*☝ Please note that this project is meant to be used for research and learning purposes and not for practical use.*
+_☝ Please note that this project is meant to be used for research and learning purposes and not for practical use._
 
 ### Try running the code
 
@@ -41,9 +41,11 @@ $ yarn test
   - [Divide](src/divide/index.d.ts) - divides two numbers.
   - [Greater than or equal](src/gte/index.d.ts) - checks if a value is greater than or equal to another value.
   - [Less than or equal](src/lte/index.d.ts) - checks if a value is less than or equal to another value.
+  - [Less than](src/lt/index.d.ts) - checks if a value is less than another value.
   - [Max](src/max/index.d.ts) - computes the maximum value of an array
   - [Min](src/min/index.d.ts) - computes the minimum value of an array.
   - [Sum](src/sum/index.d.ts) - computes the sum of the values in array.
+  - [Remainder](src/remainder/index.d.ts) - return the remainder (%) when one number is diveded by a second number
 
 - **Lists**
 
