@@ -30,6 +30,7 @@ export { Subtract } from './subtract';
 export { Sum } from './sum';
 export { Tail } from './tail';
 export { Take } from './take';
+export { Remainder } from './remainder';
 export { Uniq } from './uniq';
 export { InEvery, Unshift } from './utils/lists';
 export { Inc, Dec } from './utils/math';
