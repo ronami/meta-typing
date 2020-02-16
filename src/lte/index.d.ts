@@ -8,13 +8,13 @@ type S = Lte<1, 3>; // true
 // and `B` by 1 every time the recursion runs. The first one to equal the `never` type is
 // is the smaller one.
 //
-// This is relying on how we implemented the `Dec` method: If a value is out of scope (smaller
-// than -1) we return `never`. Similarily to how the `-Infinity` value works in JavaScript.
+// This is relying on how we implemented the `Inc` method: If a value is out of scope (higher
+// than 10) we return `never`. Similarily to how the `Infinity` value works in JavaScript.
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Lte<
-  // Accept two numbers two compare, should return `true` if `A` is smaller than or equals to
+  // Accept two numbers to compare, should return `true` if `A` is smaller than or equals to
   // `B`.
   A extends number,
   B extends number
@@ -30,7 +30,7 @@ export type Lte<
   // false, the recursion increases both by 1 and runs again with: Lte<10, 8>.
   //
   // Then again, since both numbers don't equal `never`, the recursion increases both by 1 and
-  // runs again: Gte<never, 9>.
+  // runs again: Lte<never, 9>.
   //
   // Finally, after 10 was increased by 1 and went out of calculation range, it now has the value
   // of `never`. Because it reached the `never` value first, the recursion terminates and returns
