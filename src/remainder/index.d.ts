@@ -14,11 +14,11 @@ export type Remainder<
   B extends number
 > = {
   // If `B` is `0` return never
-  'devision-by-zero': never;
+  'division-by-zero': never;
   // If `A` is less than `B` return `A`
   finish: A;
   // If A is greater than or equal to `B` it means we need to call the recursion again
-  // But only after we've substructed `B` from `A`
+  // but only after we've substructed `B` from `A`
   //
   //   Remainder<Subtract<A, B>, B>
   //
@@ -26,7 +26,7 @@ export type Remainder<
   // https://github.com/pirix-gh/medium/blob/master/types-curry-ramda/src/index.ts#L17.
   next: Subtract<A, B> extends infer R ? Remainder<Cast<R, number>, B> : never;
 }[B extends 0
-  ? 'devision-by-zero'
+  ? 'division-by-zero'
   : Gte<A, B> extends true
   ? 'next'
   : 'finish'];
