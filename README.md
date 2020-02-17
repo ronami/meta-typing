@@ -4,11 +4,11 @@
 
 ### Introduction
 
-[TypeScript](https://github.com/Microsoft/TypeScript)'s type system is a programming language that runs when we compile our code. Normally, we use it to annotate our code so TypeScript can help us find bugs before we run it. In this project, however, I tried to push TypeScript's type system to its limits by implementing various functions and algorithms, purely on the shoulders of the type system.
+[TypeScript](https://github.com/Microsoft/TypeScript)'s type system lets us catch bugs and errors in our code while writing it, instead of later on when the code runs. Well, that would be the obvious thing to do. This project attempts to push TypeScript's type system to its limits by actually implementing various functions and algorithms, purely on top of the type system.
 
-The goal of this project is to explore TypeScript's type system in an unconventional way. I used recursion a lot and had to find creative (and sometimes not officially supported) solutions to overcome [some limitations](https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373) of the type system. Each function and algorithm has its own implementation with comments describing in detail what's going on.
+Every implementation includes comments describing in detail what's going on. Some functions and algorithms required finding creative (and sometimes not officially supported) solutions to overcome [some limitations](https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373) of the type system.
 
-Just to see how far I can push it, I tried implementing the classical [Eight queens puzzle](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/n-queens). It's crazy that it actually works, [check out how it's implemented](src/nQueens/index.d.ts).
+Just to see how far we can push it, I tried solving the classical [n-queens puzzle](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/n-queens). It's crazy that it works, [check out how it's implemented](src/nQueens/index.d.ts).
 
 _☝ Please note that this project is meant to be used for research and learning purposes and not for practical use._
 
