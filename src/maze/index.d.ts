@@ -34,13 +34,27 @@ type Solution = Array<Position>;
 //
 // For example:
 //
-// ['.', '#', '#', '#'],
-// ['.', '.', '.', '#'],
-// ['#', '#', '.', '#'],
-// ['#', '#', '.', 'E'],
+// [
+//   ['.', '#', '#', '#'],
+//   ['.', '.', '.', '#'],
+//   ['#', '#', '.', '#'],
+//   ['#', '#', '.', 'E'],
+// ]
 //
 type Maze = Array<Array<Tile>>;
 
+// Returns the shortest solution to the goal if it exists or false otherwise:
+// https://en.wikipedia.org/wiki/Maze_solving_algorithm.
+type S1 = SolveMaze<
+  [
+    // Example maze, solution is (read from left to right):
+    // [[0, 0], [0, 1], [1, 1], [2, 1], [2, 2], [2, 3]]
+    ['.', '#', '#'],
+    ['.', '.', '.'],
+    ['#', '#', '.'],
+    ['#', '#', 'E'],
+  ]
+>;
 //
 export type SolveMaze<
   // The maze to solve.

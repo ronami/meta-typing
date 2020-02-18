@@ -4,13 +4,13 @@
 
 ### Introduction
 
-[TypeScript](https://github.com/Microsoft/TypeScript)'s type system lets us catch bugs and errors in our code while writing it, instead of later on when the code runs. Well, that would be the obvious thing to do. This project attempts to push TypeScript's type system to its limits by actually implementing various functions and algorithms, purely on top of the type system.
+[TypeScript](https://github.com/Microsoft/TypeScript)'s type system lets us catch bugs and errors in our code as we write it, instead of later on when the code runs. But... that's the obvious way to use the type system... 😜
 
-Every implementation includes comments describing in detail what's going on. Some functions and algorithms required finding creative (and sometimes not officially supported) solutions to overcome [some limitations](https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373) of the type system.
+This project attempts to push TypeScript's type system to its limits by actually implementing various functions and algorithms, purely on top of the type system.
 
-Just to see how far we can push it, I tried solving the classical [n-queens puzzle](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/n-queens). It's crazy that it works, [check out how it's implemented](src/nQueens/index.d.ts).
+Every implementation includes comments describing in detail what's going on. Some functions and algorithms use creative (and sometimes not officially supported) solutions to overcome [some limitations](https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373) of the type system.
 
-_☝ Please note that this project is meant to be used for research and learning purposes and not for practical use._
+_☝ Please note that this project is meant to be used for fun and learning purposes and not for practical use._
 
 ### Try running the code
 
@@ -81,9 +81,9 @@ $ yarn test
 
   - [N-Queens](src/nQueens/index.d.ts) - the problem of placing N chess queens on an N×N chessboard so that no two queens threaten each other.
   - [Maze-solving](src/maze/index.d.ts) - find the shortest path to solve a maze with obstacles.
-  - [Towers of Hanoi](src/hanoi/index.d.ts) - a mathematical game or puzzle that consists of three rods and a number of disks of different sizes.
   - [Binary trees](src/binaryTrees/index.d.ts) - a tree data structure in which each node has at most two children.
   - [Square Matrix Rotation](src/rotateMatrix/index.d.ts) - you are given an N×N 2D matrix (representing an image). Rotate the matrix by 90 degrees (clockwise and counter-clockwise).
+  - [Towers of Hanoi](src/hanoi/index.d.ts) - a mathematical game or puzzle that consists of three rods and a number of disks of different sizes.
 
 ### Additional links
 

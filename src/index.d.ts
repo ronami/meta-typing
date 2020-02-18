@@ -16,6 +16,7 @@ export { Intersection } from './intersection';
 export { IsEqual } from './isEqual';
 export { Lte } from './lte';
 export { Max } from './max';
+export { SolveMaze } from './maze';
 export { MergeSort } from './mergeSort';
 export { Min } from './min';
 export { Multiply } from './multiply';
