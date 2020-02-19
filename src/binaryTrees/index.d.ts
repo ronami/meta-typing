@@ -94,6 +94,9 @@ export type Tree1 = Branch<
 type S1 = DepthFirst<Tree1>; // ["a", "b", "d", "c", "f", "g", "e"]
 //
 // https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/tree/depth-first-search.
+//
+// This type uses recursive (and not officially supported) type alias, see more:
+// https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type DepthFirst<
   // The input tree.
   T extends Tree<any, any, any>
@@ -124,6 +127,9 @@ export type DepthFirst<
 type S2 = BreadthFirst<Tree1>; // ["a", "b", "c", "d", "f", "g", "e"]
 //
 // https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/tree/breadth-first-search.
+//
+// This type uses recursive (and not officially supported) type alias, see more:
+// https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type BreadthFirst<
   // The input tree.
   T extends Tree<any, any, any>

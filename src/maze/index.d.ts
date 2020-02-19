@@ -38,6 +38,7 @@ type Maze = Array<Array<Tile>>;
 
 // Returns the shortest solution to the goal if it exists or false otherwise:
 // https://en.wikipedia.org/wiki/Maze_solving_algorithm.
+//
 type S1 = SolveMaze<
   [
     // Example maze, solution is (read from left to right):
@@ -49,6 +50,8 @@ type S1 = SolveMaze<
   ]
 >;
 //
+// This type uses recursive (and not officially supported) type alias, see more:
+// https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type SolveMaze<
   // The maze to solve.
   M extends Maze

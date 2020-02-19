@@ -89,7 +89,7 @@ $ yarn test
 
 - [Utility TypeScript types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
 - [Advanced TypeScript types](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
-- [TypeScript video tutorials from Egghead.io](https://egghead.io/browse/languages/typescript)
+- [Typing the Technical Interview in TypeScript](https://gal.hagever.com/posts/typing-the-technical-interview-in-typescript/)
 - [TypeScripts Type System is Turing Complete](https://github.com/microsoft/TypeScript/issues/14833)
 - [Emulating a 4-Bit Virtual Machine in TypeScript's type system](https://gist.github.com/acutmore/9d2ce837f019608f26ff54e0b1c23d6e)
 - [Algorithms and data structures implemented in JavaScript](https://github.com/trekhleb/javascript-algorithms)
