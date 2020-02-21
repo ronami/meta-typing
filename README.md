@@ -1,6 +1,6 @@
 ## 📚 Meta-Typing
 
-> Various functions and algorithms implemented purely with TypeScript's type system
+> Functions and algorithms implemented purely with TypeScript's type system
 
 ### Introduction
 
