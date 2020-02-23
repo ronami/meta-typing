@@ -25,6 +25,7 @@ export { nQueens } from './nQueens';
 export { QuickSort } from './quickSort';
 export { Range } from './range';
 export { Reverse } from './reverse';
+export { RotateCCW, RotateCW } from './rotateMatrix';
 export { Size } from './size';
 export { Slice } from './slice';
 export { Subtract } from './subtract';
