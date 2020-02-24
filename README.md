@@ -44,7 +44,7 @@ $ yarn test
   - [Max](src/max/index.d.ts) - computes the maximum value of an array.
   - [Min](src/min/index.d.ts) - computes the minimum value of an array.
   - [Sum](src/sum/index.d.ts) - computes the sum of the values in array.
-  - [Remainder](src/remainder/index.d.ts) - return the remainder (%) when one number is diveded by a second number.
+  - [Remainder](src/remainder/index.d.ts) - return the remainder (%) when one number is divided by a second number.
 
 - **Lists**
 
