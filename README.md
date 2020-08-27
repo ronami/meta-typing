@@ -39,7 +39,7 @@ $ yarn test
   - [Subtract](src/subtract/index.d.ts) - subtracts two numbers.
   - [Multiply](src/multiply/index.d.ts) - multiplies two numbers.
   - [Divide](src/divide/index.d.ts) - divides two numbers.
-  - [Power](src/power/index.d.ts) - computes A power B.
+  - [Power](src/power/index.d.ts) - computes the given base taken to the power of the given exponent.
   - [Greater than or equal](src/gte/index.d.ts) - checks if a value is greater than or equal to another value.
   - [Less than or equal](src/lte/index.d.ts) - checks if a value is less than or equal to another value.
   - [Max](src/max/index.d.ts) - computes the maximum value of an array.

@@ -1,15 +1,15 @@
 import { Multiply, Dec, Cast } from '..';
 
-// Power two numbers: https://lodash.com/docs/4.17.15#power.
+// Power two numbers: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow
 //
 type S = Power<2, 3>; // 8
 //
 // This type uses recursive (and not officially supported) type alias, see more:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-513187373.
 export type Power<
-  // The first number in a multiplication.
+  // The Base.
   A extends number,
-  // The second number in a multiplication.
+  // The Exponent used to raise the Base.
   B extends number
   > = {
   // If A is 0: return 0
